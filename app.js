@@ -16,6 +16,10 @@ server.use('/css/bootstrap.css', express.static('node_modules/bootstrap/dist/css
 server.use('/css/bootstrap.css.map', express.static('node_modules/bootstrap/dist/css/bootstrap.css.map'));
 
 
+server.get('/clissifidecreate', (req, res) => {
+    res.render('clissifidecreate');
+})
+
 server.get('/', (req, res) => {
     res.render('main');
 })
@@ -35,12 +39,20 @@ server.post('/postad', bodyParser.json() , async (req, res) => {
     });
     console.log(doc);
 });
-//[Object: null prototype] { genreName: 'Лалала' }
 
 //getting keywords list
 server.get('/keys', async (req, res) => {
     const keysList = await KeywordsModel.find({}, 'keyword').exec();
     res.send(JSON.stringify(keysList));
+})
+
+server.get('/classified/:id', async (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+    const data = await PostModel.findOne({ _id: id }).populate('keywords').exec();
+    console.log(data.keywords);
+  //  console.log('data:', data);
+    res.render('clissifidecard', { data });
 })
 
 const init = async  () => {
@@ -50,8 +62,8 @@ const init = async  () => {
     });
     const booksList = await PostModel.find({}, ).populate('keywords');
     console.log(booksList);
-    res.send(JSON.stringify(booksList));
-
+  //  res.send(JSON.stringify(booksList));
+//  635e70140ee349d5b3f7246b
     console.log(doc);
  };
  // init();

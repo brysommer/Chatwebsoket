@@ -4,3 +4,10 @@ width: 800px;
 background-color: #ACB5BD;
 }
 
+.left {
+    text-align: left;
+  }
+
+span {
+    text-align: left;
+}

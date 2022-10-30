@@ -5,11 +5,13 @@ const generalSchema = new Schema({
     comment: {
         type: Schema.Types.String,
         minLenght: 5,
+        maxLenght: 280,
         required: [true, 'Надто коротко для коментаря']
     },
     author: {
         type: Schema.Types.String,
         minLenght: 3,
+        maxLenght: 20,
         required: [true, 'Будь ласка представтеся']
 
     },

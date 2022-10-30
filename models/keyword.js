@@ -1,12 +1,18 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+
+// валідація не працює
 const generalSchema = new Schema({
     keyword: {
         type: Schema.Types.String,
-        minLenght: 2,
+        minLenght: 3,
+        maxLenght: 10,
+        lowercase: true,
+        index: true,
+        unique: true,
     },
-    adds: [{ 
+    post: [{ 
         type: Schema.Types.ObjectId, 
         ref: 'Posts' }],
 });

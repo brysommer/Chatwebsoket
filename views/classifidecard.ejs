@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer">        
+    </script>
+    <link rel="stylesheet" href="/css/bootstrap.css.map">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <title>Базарчик</title>
+</head>
+<body>
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <img src="https://via.placeholder.com/350x400?text=Немає+Фото"   class="img-fluid" alt="...">
+        </div>
+        <div class="col">
+            <h2><%= data.title%></h2><br>
+            <h6><a href="#">#нерухомість</a>
+            <a href="#">#нерухомість</a>
+            <a href="#">#нерухомість</a>
+            <a href="#">#нерухомість</a>
+            </h6><br>
+            <p class="text-start"><%= data.content%></p><br>
+            <span>Автор: <%= data.author%></span><br>
+            <span>Знаходиться: <%= data.location%></span><br>
+            <span>Номер телефону: <%= data.phone%></span><br>
+            <span>Створено: <%= data.createdAt%></span><br>
+            <span>Оновлено: <%= data.updatedAt%></span><br>
+            <h3>Ціна: <%= data.price%> .грн</h3>
+        </div>
+    </div>
+    <div class="row">
+        <h4>Коментарі</h4>
+    </div>
+    <div class="row" name="allcomments">
+        <div class="card text-start" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title"><%= data.comments[0].author%></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Відповісти</a>
+                <a href="#" class="card-link">+</a>
+                <a href="#" class="card-link">-</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="visually-hidden" >Детальний опис</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" placeholder="Ваш коменнтар. Обмеження 280 символів" rows="3"></textarea>
+            </div>
+        </div>  
+    </div>      
+    <div class="row">
+        <div class="col">
+            <label for="inputPassword2" class="visually-hidden"></label>
+                <input type="text" class="form-control" id="inputPassword2" name="author" placeholder="Ваше імя чи нікнейм">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        <button type="button" name="post" class="btn btn-outline-primary">Залишити коментар</button>
+        </div>
+    </div>
+</div>
+<script src="/script/comment.js"></script>
+</body>
+</html>

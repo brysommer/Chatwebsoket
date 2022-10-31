@@ -6,7 +6,7 @@ const server = express();
 const db = require('./db');
 const KeywordsModel = require('./models/keyword');
 const PostModel = require('./models/post');
-//const CommentModel = require('./models/comment');
+const CommentModel = require('./models/comment');
 const bodyParser = require('body-parser');
 server.set('view engine', 'ejs');
 server.set('views', './views');
@@ -14,10 +14,12 @@ server.listen(3000);
 server.use(express.static('public'));
 server.use('/css/bootstrap.css', express.static('node_modules/bootstrap/dist/css/bootstrap.css'));
 server.use('/css/bootstrap.css.map', express.static('node_modules/bootstrap/dist/css/bootstrap.css.map'));
+server.use('/css/bootstrap-icons.css', express.static('node_modules/bootstrap-icons/font/bootstrap-icons.css'));
 
 
-server.get('/clissifidecreate', (req, res) => {
-    res.render('clissifidecreate');
+
+server.get('/classifidecreate', (req, res) => {
+    res.render('classifidecreate');
 })
 
 server.get('/', (req, res) => {
@@ -40,25 +42,41 @@ server.post('/postad', bodyParser.json() , async (req, res) => {
     console.log(doc);
 });
 
+//post comment
+server.post('/postcomment', bodyParser.json() , async (req, res) => {
+    const doc = await CommentModel.create({
+        author: req.body.author,
+        comment: req.body.comment,
+    });
+    const PostUpdate = await PostModel.updateOne(
+        { _id: req.body.params },
+        {
+          $push: { comments: doc.id }  
+        } 
+    );
+    console.log(req.body.params);
+    console.log(doc._id);
+    console.log(PostUpdate);
+}); 
+
 //getting keywords list
 server.get('/keys', async (req, res) => {
     const keysList = await KeywordsModel.find({}, 'keyword').exec();
     res.send(JSON.stringify(keysList));
-})
+});
 
 server.get('/classified/:id', async (req, res) => {
     const { id } = req.params;
-    console.log(id);
-    const data = await PostModel.findOne({ _id: id }).populate('keywords').exec();
-    console.log(data.keywords);
-  //  console.log('data:', data);
-    res.render('clissifidecard', { data });
-})
+    const data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
+    console.log(data.comments[0].author);
+    res.render('classifidecard', { data });
+});
+
 
 const init = async  () => {
     console.log('start');
     const doc = await KeywordsModel.create({
-        keyword: 'Трава',
+        keyword: 'Мобільний телефон',
     });
     const booksList = await PostModel.find({}, ).populate('keywords');
     console.log(booksList);

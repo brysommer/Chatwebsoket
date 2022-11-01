@@ -35,7 +35,8 @@ const generalSchema = new Schema({
 
     },
     picture: {
-        type: Schema.Types.String,       
+        type: Schema.Types.String,
+        default: '3',      
     },
     keywords: [{
         type: Schema.Types.ObjectId,

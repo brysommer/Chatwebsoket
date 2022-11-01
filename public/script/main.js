@@ -11,11 +11,27 @@ const el8 = document.querySelector('input[name="price"]');
 const el9 = document.querySelector('datalist[name="keys"]');
 const el10 = document.querySelector('input[name="keywordsinput"]');
 
-
-
-
-
-
+const getLocations = async () => {
+    axios.get('/https://api.novaposhta.ua/v2.0/json/', {
+        params: {
+            "apiKey": "97258b9965967fd9626195cef7640160",
+            "modelName": "Address",
+            "calledMethod": "getSettlements",
+            "methodProperties": {}
+        }
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    
+};
+getLocations();
 
 //posting data to server
 const postData = async () => {

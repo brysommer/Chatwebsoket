@@ -8,7 +8,7 @@ const generalSchema = new Schema({
         type: Schema.Types.String,
         minLenght: 3,
         maxLenght: 10,
-        lowercase: true,
+  //      lowercase: true,
         index: true,
         unique: true,
     },

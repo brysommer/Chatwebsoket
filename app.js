@@ -1,8 +1,9 @@
 const express = require('express');
 const server = express();
-//const multer  = require('multer')
-//const storage = multer.memoryStorage();
-//const uploads = multer({storage});
+const fs = require('fs');
+const multer  = require('multer');
+const storage = multer.memoryStorage();
+const uploads = multer({ dest: 'uploads/' })
 const db = require('./db');
 const KeywordsModel = require('./models/keyword');
 const PostModel = require('./models/post');
@@ -20,14 +21,33 @@ server.use('/css/bootstrap-icons.css', express.static('node_modules/bootstrap-ic
 
 server.get('/classifidecreate', (req, res) => {
     res.render('classifidecreate');
-})
+});
 
 server.get('/', (req, res) => {
-    res.render('main');
-})
+    res.render('index');
+});
+
+server.get('/classified/:id', async (req, res) => {
+    const { id } = req.params;
+    const data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
+    console.log(data.comments[0].author);
+    res.render('classifidecard', { data });
+});
+
+server.get('/json/:id', async (req, res) => {
+    const { id } = req.params;
+    const data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
+    console.log(data.comments[0].author);
+    res.send(JSON.stringify(data)); 
+});
+
+server.get('/getAdds', async (req, res) => {
+    const data = await PostModel.find({}).populate('keywords').exec();
+    res.send(JSON.stringify(data)); 
+});
 
 // posting add 
-server.post('/postad', bodyParser.json() , async (req, res) => {
+server.post('/postad', uploads.single('picture'), bodyParser.json() , async (req, res) => {
     const [ keywordID ] = await KeywordsModel.find({ keyword: req.body.keywords }).exec();
     console.log(keywordID._id);
     const doc = await PostModel.create({
@@ -65,23 +85,16 @@ server.get('/keys', async (req, res) => {
     res.send(JSON.stringify(keysList));
 });
 
-server.get('/classified/:id', async (req, res) => {
-    const { id } = req.params;
-    const data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
-    console.log(data.comments[0].author);
-    res.render('classifidecard', { data });
-});
-
 
 const init = async  () => {
     console.log('start');
     const doc = await KeywordsModel.create({
-        keyword: 'Мобільний телефон',
+        keyword: 'вікна',
     });
-    const booksList = await PostModel.find({}, ).populate('keywords');
-    console.log(booksList);
+ //   const booksList = await PostModel.find({}, ).populate('keywords');
+ //   console.log(booksList);
   //  res.send(JSON.stringify(booksList));
 //  635e70140ee349d5b3f7246b
     console.log(doc);
  };
- // init();
+//  init();

@@ -9,6 +9,8 @@ const KeywordsModel = require('./models/keyword');
 const PostModel = require('./models/post');
 const CommentModel = require('./models/comment');
 const bodyParser = require('body-parser');
+const axios = require('axios');
+
 server.set('view engine', 'ejs');
 server.set('views', './views');
 server.listen(3000);
@@ -28,10 +30,7 @@ server.get('/', (req, res) => {
 });
 
 server.get('/classified/:id', async (req, res) => {
-    const { id } = req.params;
-    const data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
-    console.log(data.comments[0].author);
-    res.render('classifidecard', { data });
+    res.render('classifidecard');
 });
 
 server.get('/json/:id', async (req, res) => {
@@ -48,7 +47,9 @@ server.get('/getAdds', async (req, res) => {
 
 // posting add 
 server.post('/postad', uploads.single('picture'), bodyParser.json() , async (req, res) => {
-    const [ keywordID ] = await KeywordsModel.find({ keyword: req.body.keywords }).exec();
+    console.log(req.body);
+    //Тут логіка по додаванню нових ключових слів і отриманню ід, існуючих
+  /*  const [ keywordID ] = await KeywordsModel.find({ keyword: req.body.keywords }).exec();
     console.log(keywordID._id);
     const doc = await PostModel.create({
         author: req.body.author,
@@ -59,7 +60,7 @@ server.post('/postad', uploads.single('picture'), bodyParser.json() , async (req
         keywords: [ keywordID._id ],
         price: req.body.price
     });
-    console.log(doc);
+    console.log(doc); */
 });
 
 //post comment
@@ -87,14 +88,15 @@ server.get('/keys', async (req, res) => {
 
 
 const init = async  () => {
-    console.log('start');
-    const doc = await KeywordsModel.create({
-        keyword: 'вікна',
-    });
+    
+ //   console.log('start');
+ //   const doc = await KeywordsModel.create({
+ //       keyword: 'вікна',
+ //   });
  //   const booksList = await PostModel.find({}, ).populate('keywords');
  //   console.log(booksList);
   //  res.send(JSON.stringify(booksList));
 //  635e70140ee349d5b3f7246b
-    console.log(doc);
  };
-//  init();
+  init();
+

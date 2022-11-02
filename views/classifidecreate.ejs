@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/css/bootstrap.css.map">
     <link rel="stylesheet" href="/css/bootstrap.css">
-    
     <link rel="stylesheet" href="/style/main.css">
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
     <title>Базарчик</title>
 </head>
 <body>
@@ -27,8 +27,6 @@
             <div class="col">
                 <label for="exampleDataList" class="form-label">Ключові слова</label>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" name="keywordsinput" placeholder="Введіть для пошуку...">
-                <datalist id="datalistOptions" name="keys">
-                </datalist>
             </div>
         </div> 
         <div class="row">
@@ -58,11 +56,11 @@
           </div>
           <div class="col">
             <label for="inputPassword2" class="visually-hidden">Номер телефону</label>
-              <input type="tel" class="form-control" id="inputPassword2" name="phone" placeholder="Номер телефону без +38">
+              <input type="tel" class="form-control" id="inputPassword2" name="phone" placeholder="Номер телефону без +380">
 
           </div>
           <div class="col">
-            <label for="exampleDataList" class="visually-hidden"">Локація</label>
+            <label for="exampleDataList" class="visually-hidden">Локація</label>
                 <input class="form-control" list="datalistOpt" id="exampleDataList" name="location" placeholder="Ваш населений пункт">
                 <datalist id="datalistOpt">
                   <option value="КИїв">
@@ -104,6 +102,11 @@
             </div>
           </div>
       </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/@yaireo/tagify"></script>
+<script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
+<script src="/script/inputmask.min.js"></script>
 <script src="/script/main.js"></script>
+
 </body>
 </html>

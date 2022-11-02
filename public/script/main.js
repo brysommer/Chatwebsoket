@@ -8,33 +8,42 @@ const el5 = document.querySelector('textarea[name="content"]');
 const el6 = document.querySelector('input[name="picture"]');
 const el7 = document.querySelector('input[name="keywords"]');
 const el8 = document.querySelector('input[name="price"]');
-const el9 = document.querySelector('datalist[name="keys"]');
+// const el9 = document.querySelector('datalist[name="keys"]');
 const el10 = document.querySelector('input[name="keywordsinput"]');
+let keywordsList = [];
 
-const getLocations = async () => {
-    axios.get('/https://api.novaposhta.ua/v2.0/json/', {
-        params: {
-            "apiKey": "97258b9965967fd9626195cef7640160",
-            "modelName": "Address",
-            "calledMethod": "getSettlements",
-            "methodProperties": {}
+//Get locations from NP
+/* const getLocations = async () => {
+    const res = await axios.get('https://api.novaposhta.ua/v2.0/json/', { params: {
+        "apiKey": "ad1807f5abe94965f34ef9491cb40338",
+        "modelName": "Address",
+        "calledMethod": "searchSettlements",
+        "methodProperties": {
+            "CityName": "рівне",
+            "Limit": "50",
+            "Page": "2"
         }
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
+    } });
+
+console.log(res);
     
 };
-getLocations();
+getLocations(); */
+
+//keywors list arrange
+const keysArrange = () => {
+    console.log(el10.value);
+    let data = JSON.parse(el10.value);
+    data.forEach(element => {
+        console.log(element.value);
+        keywordsList.push(element.value);
+    });
+    console.log(keywordsList);
+};
 
 //posting data to server
 const postData = async () => {
+    keysArrange();
     const data = {
         author: el1.value,
         phone: el2.value,
@@ -42,7 +51,7 @@ const postData = async () => {
         title: el4.value,
         content: el5.value,
         picture: el6.value,
-        keywords: el7.value,
+        keywords: keywordsList,
         price: el8.value,
     };
     await axios({
@@ -62,13 +71,22 @@ const postData = async () => {
 
 //getkeys data
 const getKeys = async () => {
-    let HTML = '';
-    const {data}  = await axios.get('/keys');
+    let keywordsArray = [];
+    const {data}  = await axios.get('/keys');    
     data.forEach(element => {
-        console.log(element.keyword);
-        HTML += `<option value="${element.keyword}">`
+        keywordsArray.push(element.keyword);
     })
-    el9.innerHTML = HTML;
+    // init Tagify script on the above inputs
+    tagify = new Tagify(el10, {
+        whitelist: keywordsArray,
+        maxTags: 10,
+        dropdown: {
+          maxItems: 20,           // <- mixumum allowed rendered suggestions
+          classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+          enabled: 0,             // <- show suggestions on focus
+          closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
+        }
+      });  
 };
 
 
@@ -77,13 +95,19 @@ getKeys();
 postButton.addEventListener('click', (click) => {
     postData();
 });
-
+/*
 //adding kewords
 el10.addEventListener('change', (change) => {
-    console.log(el10.value);
+    console.log(el10.value.value);
     el7.value = '';
     el7.value += el10.value;
-})
+    keysArrange();
+});
+*/
+//phone input mask
+let im = new Inputmask('+38 (099) 999-99-99');
+im.mask(el2);
+
 
 
 

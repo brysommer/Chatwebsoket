@@ -14,31 +14,26 @@
     <title>Базарчик</title>
 </head>
 <body>
+    <form action="#" id="form" autocomplete="off">
     <div class="container text-center">
         <div class="row">
           <div class="col">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Назва</label>
+                <label for="exampleFormControlInput1" class="form-label">Назва*</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Опишіть коротко заголовок товару">
               </div>
           </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="exampleDataList" class="form-label">Ключові слова</label>
+                <label for="exampleDataList" class="form-label">Ключові слова*</label>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" name="keywordsinput" placeholder="Введіть для пошуку...">
             </div>
-        </div> 
-        <div class="row">
-            <div class="col">
-                <label for="disabled input" class="form-label">Ключові слова</label>
-                <input class="form-control" id="disabled input" type="text" name="keywords" value="Тут буде список доданих ключових слів" aria-label="Пример отключенного входа" disabled readonly>
-            </div>
-        </div> 
+        </div>        
         <div class="row">
             <div class="col">
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label" >Детальний опис</label>
+                    <label for="exampleFormControlTextarea1" class="form-label" >Детальний опис*</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="content" placeholder="Надайте максимум корисної інформації для покупця. Обмеження 280 символів" rows="3"></textarea>
                   </div>
             </div>   
@@ -50,7 +45,7 @@
         </div>
         <div class="row">
           <div class="col">
-            <label for="inputPassword2" class="visually-hidden">Як до вас звертатися</label>
+            <label for="inputPassword2" class="visually-hidden">Як до вас звертатися*</label>
               <input type="text" class="form-control" id="inputPassword2" name="author" placeholder="Ваше імя чи нікнейм">
 
           </div>
@@ -60,7 +55,7 @@
 
           </div>
           <div class="col">
-            <label for="exampleDataList" class="visually-hidden">Локація</label>
+            <label for="exampleDataList" class="visually-hidden">Локація*</label>
                 <input class="form-control" list="datalistOpt" id="exampleDataList" name="location" placeholder="Ваш населений пункт">
                 <datalist id="datalistOpt">
                   <option value="КИїв">
@@ -83,25 +78,27 @@
         </div>
         <div class="row">
             <div class="col">
-               <span>Ціна</span>
+               <span>Ціна*</span>
             </div>   
         </div>
         <div class="row">
             <div class="col">
-                <form class="row g-3">
+              <form class="row g-3"> 
                     <div class="col-auto">
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3 ">
                             <input type="text" class="form-control" placeholder="" name="price" aria-label="Имя пользователя получателя" aria-describedby="basic-addon2">
                             <span class="input-group-text" id="basic-addon2">.ГРН</span>  
                         </div>
                     </div>
+                </form>
                     <div class="col-auto">
                         <button type="button" name="send" class="btn btn-primary mb-3">Опублікувати</button>
                     </div>
-                </form>
+                
             </div>
           </div>
       </div>
+    </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/@yaireo/tagify"></script>
 <script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>

@@ -10,6 +10,7 @@ const PostModel = require('./models/post');
 const CommentModel = require('./models/comment');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const { setTimeout } = require('timers/promises');
 
 server.set('view engine', 'ejs');
 server.set('views', './views');
@@ -36,7 +37,6 @@ server.get('/classified/:id', async (req, res) => {
 server.get('/json/:id', async (req, res) => {
     const { id } = req.params;
     const data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
-    console.log(data.comments[0].author);
     res.send(JSON.stringify(data)); 
 });
 
@@ -45,22 +45,42 @@ server.get('/getAdds', async (req, res) => {
     res.send(JSON.stringify(data)); 
 });
 
+
+
 // posting add 
 server.post('/postad', uploads.single('picture'), bodyParser.json() , async (req, res) => {
-    console.log(req.body);
+    let keywordsArray = [];
+//creating post
+    const createPost = async () => {
+        const doc = await PostModel.create({
+            author: req.body.author,
+            phone: req.body.phone,
+            location: req.body.location,
+            title: req.body.title,
+            content: req.body.content,
+            keywords: keywordsArray,
+            price: req.body.price
+        });
+        console.log(doc)    
+    };
     //Тут логіка по додаванню нових ключових слів і отриманню ід, існуючих
-  /*  const [ keywordID ] = await KeywordsModel.find({ keyword: req.body.keywords }).exec();
-    console.log(keywordID._id);
-    const doc = await PostModel.create({
-        author: req.body.author,
-        phone: req.body.phone,
-        location: req.body.location,
-        title: req.body.title,
-        content: req.body.content,
-        keywords: [ keywordID._id ],
-        price: req.body.price
-    });
-    console.log(doc); */
+    const keywordsProcess = () => {
+        const keywords = req.body.keywords;
+        var count_success = keywords.length;        
+        keywords.forEach(async element => {
+            count_success--;
+            let keywordID;
+            [ keywordID ] = await KeywordsModel.find({ keyword: element }).exec();
+            if (!keywordID) {
+            keywordID = await KeywordsModel.create({ keyword: element });  
+            };
+            keywordsArray.push(keywordID._id);
+            if(count_success == 0) {
+                createPost(); 
+            }             
+        });        
+    };
+    keywordsProcess();
 });
 
 //post comment

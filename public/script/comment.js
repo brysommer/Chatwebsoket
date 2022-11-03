@@ -13,6 +13,7 @@ const el8 = document.querySelector('span[name="createAt"]');
 const el9 = document.querySelector('span[name="updateAt"]');
 const el10 = document.querySelector('span[name="price"]');
 const el11 = document.querySelector('img[name=pic]');
+const el13 = document.querySelector('span[name="keywords"]');
 //comments const
 const el12 = document.querySelector('div[name=allcomments]');
 //params consts
@@ -27,6 +28,7 @@ const getData = async () => {
     const {data}  = await axios.get(`/json/${params}`);
     console.log(data);
     contentData = data;
+    createKeysData();
     renderData();
     renderComments();
  /*  await axios.get(`/json/${params}`)
@@ -44,6 +46,19 @@ const getData = async () => {
   */ 
 };
 getData();
+
+//keywords HTML
+const createKeysData = () => {
+    let HTML = '';
+    let keysArray = contentData.keywords;
+    keysArray.forEach(element => {
+        console.log(element.keyword);
+        HTML += `<a href="#">#${element.keyword}</a> `;
+    });
+    el13.innerHTML = HTML;
+};
+
+
 
 //rendering data
 const renderData = () => {
@@ -77,9 +92,6 @@ const renderComments = () =>{
     });
     el12.innerHTML = HTML;
 };
-
-
-
 
 
 //posting comments data to server

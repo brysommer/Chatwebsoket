@@ -13,7 +13,7 @@ const el10 = document.querySelector('input[name="keywordsinput"]');
 let keywordsList = [];
 
 //Get locations from NP
-/* const getLocations = async () => {
+ const getLocations = async () => {
     const res = await axios.get('https://api.novaposhta.ua/v2.0/json/', { params: {
         "apiKey": "ad1807f5abe94965f34ef9491cb40338",
         "modelName": "Address",
@@ -28,7 +28,7 @@ let keywordsList = [];
 console.log(res);
     
 };
-getLocations(); */
+getLocations(); 
 
 //keywors list arrange
 const keysArrange = () => {
@@ -107,6 +107,10 @@ el10.addEventListener('change', (change) => {
 //phone input mask
 let im = new Inputmask('+38 (099) 999-99-99');
 im.mask(el2);
+
+//validation
+
+
 
 
 

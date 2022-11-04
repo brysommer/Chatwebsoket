@@ -1,7 +1,10 @@
 //constants defination
-const postButton = document.querySelector('button[name="send"]');
+
+/*const postButton = document.querySelector('button[name="send"]');
 const el1 = document.querySelector('input[name="author"]');
+*/
 const el2 = document.querySelector('input[name="phone"]');
+/*
 const el3 = document.querySelector('input[name="location"]');
 const el4 = document.querySelector('input[name="title"]');
 const el5 = document.querySelector('textarea[name="content"]');
@@ -9,8 +12,10 @@ const el6 = document.querySelector('input[name="picture"]');
 const el7 = document.querySelector('input[name="keywords"]');
 const el8 = document.querySelector('input[name="price"]');
 // const el9 = document.querySelector('datalist[name="keys"]');
+*/
 const el10 = document.querySelector('input[name="keywordsinput"]');
-let keywordsList = [];
+// let keywordsList = [];
+
 
 //Get locations from NP
  const getLocations = async () => {
@@ -31,6 +36,7 @@ console.log(res);
 getLocations(); 
 
 //keywors list arrange
+/*
 const keysArrange = () => {
     console.log(el10.value);
     let data = JSON.parse(el10.value);
@@ -40,8 +46,10 @@ const keysArrange = () => {
     });
     console.log(keywordsList);
 };
+*/
 
 //posting data to server
+/*
 const postData = async () => {
     keysArrange();
     const data = {
@@ -68,6 +76,7 @@ const postData = async () => {
         console.log(error);
     });    
 };
+*/
 
 //getkeys data
 const getKeys = async () => {
@@ -92,9 +101,11 @@ const getKeys = async () => {
 
 //events
 getKeys();
+/*
 postButton.addEventListener('click', (click) => {
     postData();
 });
+*/
 /*
 //adding kewords
 el10.addEventListener('change', (change) => {

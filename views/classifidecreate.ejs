@@ -14,27 +14,27 @@
     <title>Базарчик</title>
 </head>
 <body>
-    <form action="#" id="form" autocomplete="off">
+  <form action="/postad" method="post" enctype="multipart/form-data">
     <div class="container text-center">
         <div class="row">
           <div class="col">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Назва*</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Опишіть коротко заголовок товару">
+                <input type="text" required class="form-control" id="exampleFormControlInput1" name="title" placeholder="Опишіть коротко заголовок товару">
               </div>
           </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="exampleDataList" class="form-label">Ключові слова*</label>
-                <input class="form-control" list="datalistOptions" id="exampleDataList" name="keywordsinput" placeholder="Введіть для пошуку...">
+                <input class="form-control" required list="datalistOptions" id="exampleDataList" name="keywordsinput" placeholder="Введіть для пошуку...">
             </div>
         </div>        
         <div class="row">
             <div class="col">
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label" >Детальний опис*</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="content" placeholder="Надайте максимум корисної інформації для покупця. Обмеження 280 символів" rows="3"></textarea>
+                    <textarea class="form-control" required id="exampleFormControlTextarea1" name="content" placeholder="Надайте максимум корисної інформації для покупця. Обмеження 280 символів" rows="3"></textarea>
                   </div>
             </div>   
         </div>
@@ -46,7 +46,7 @@
         <div class="row">
           <div class="col">
             <label for="inputPassword2" class="visually-hidden">Як до вас звертатися*</label>
-              <input type="text" class="form-control" id="inputPassword2" name="author" placeholder="Ваше імя чи нікнейм">
+              <input type="text" required class="form-control" id="inputPassword2" name="author" placeholder="Ваше імя чи нікнейм">
 
           </div>
           <div class="col">
@@ -56,7 +56,7 @@
           </div>
           <div class="col">
             <label for="exampleDataList" class="visually-hidden">Локація*</label>
-                <input class="form-control" list="datalistOpt" id="exampleDataList" name="location" placeholder="Ваш населений пункт">
+                <input class="form-control" required list="datalistOpt" id="exampleDataList" name="location" placeholder="Ваш населений пункт">
                 <datalist id="datalistOpt">
                   <option value="КИїв">
                   <option value="Харків">
@@ -70,9 +70,9 @@
             <div class="col">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Фото</label>
-                    <form action="/upload" method="post" enctype="multipart/form-data">
+               <!--     <form action="/upload" method="post" enctype="multipart/form-data"> -->
                     <input class="form-control" name="picture" type="file" id="formFile">
-                    </form>
+                    
                   </div>
             </div>
         </div>
@@ -83,16 +83,16 @@
         </div>
         <div class="row">
             <div class="col">
-              <form class="row g-3"> 
+              <div class="row g-3"> 
                     <div class="col-auto">
                         <div class="input-group mb-3 ">
-                            <input type="text" class="form-control" placeholder="" name="price" aria-label="Имя пользователя получателя" aria-describedby="basic-addon2">
+                            <input type="text" required class="form-control" placeholder="" name="price" aria-label="Имя пользователя получателя" aria-describedby="basic-addon2">
                             <span class="input-group-text" id="basic-addon2">.ГРН</span>  
                         </div>
                     </div>
-                </form>
+                  </div>
                     <div class="col-auto">
-                        <button type="button" name="send" class="btn btn-primary mb-3">Опублікувати</button>
+                        <button type="submit" name="send" class="btn btn-primary mb-3">Опублікувати</button>
                     </div>
                 
             </div>
@@ -104,6 +104,5 @@
 <script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
 <script src="/script/inputmask.min.js"></script>
 <script src="/script/main.js"></script>
-
 </body>
 </html>

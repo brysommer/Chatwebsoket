@@ -3,7 +3,7 @@ const server = express();
 const fs = require('fs');
 const multer  = require('multer');
 const storage = multer.memoryStorage();
-const uploads = multer({ dest: 'uploads/' })
+const uploads = multer({ dest: 'public/img' })
 const db = require('./db');
 const KeywordsModel = require('./models/keyword');
 const PostModel = require('./models/post');
@@ -11,6 +11,7 @@ const CommentModel = require('./models/comment');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const { setTimeout } = require('timers/promises');
+const { count } = require('console');
 
 server.set('view engine', 'ejs');
 server.set('views', './views');
@@ -46,9 +47,9 @@ server.get('/getAdds', async (req, res) => {
 });
 
 
-
-// posting add 
-server.post('/postad', uploads.single('picture'), bodyParser.json() , async (req, res) => {
+// posting add
+server.post('/postad', uploads.single('picture'), async (req, res) => {
+    console.log(req.file);
     let keywordsArray = [];
 //creating post
     const createPost = async () => {
@@ -59,22 +60,25 @@ server.post('/postad', uploads.single('picture'), bodyParser.json() , async (req
             title: req.body.title,
             content: req.body.content,
             keywords: keywordsArray,
-            price: req.body.price
+            price: req.body.price,
+            picture: req.file.filename
         });
-        console.log(doc)    
+        console.log(doc);
+        const id = doc._id;
+        res.redirect(`/classified/${id}`);   
     };
     //Тут логіка по додаванню нових ключових слів і отриманню ід, існуючих
     const keywordsProcess = () => {
-        const keywords = req.body.keywords;
-        var count_success = keywords.length;        
-        keywords.forEach(async element => {
-            count_success--;
+        const keywords = JSON.parse(req.body.keywordsinput);
+        let count_success = keywords.length;        
+        keywords.forEach(async element => {            
             let keywordID;
-            [ keywordID ] = await KeywordsModel.find({ keyword: element }).exec();
+            [ keywordID ] = await KeywordsModel.find({ keyword: element.value }).exec();
             if (!keywordID) {
-            keywordID = await KeywordsModel.create({ keyword: element });  
+            keywordID = await KeywordsModel.create({ keyword: element.value });  
             };
             keywordsArray.push(keywordID._id);
+            count_success--;
             if(count_success == 0) {
                 createPost(); 
             }             
@@ -82,7 +86,84 @@ server.post('/postad', uploads.single('picture'), bodyParser.json() , async (req
     };
     keywordsProcess();
 });
+/*
+// posting add 
+server.post('/postad', uploads.none(), bodyParser.json() , async (req, res) => {
+    const keywords = JSON.parse(req.body.keywordsinput);
+    
+//creating post
+    const createPost = async (keywordsArray) => {
+        const doc = await PostModel.create({
+            author: req.body.author,
+            phone: req.body.phone,
+            location: req.body.location,
+            title: req.body.title,
+            content: req.body.content,
+            keywords: keywordsArray,
+            price: req.body.price
+        });
+        console.log(doc);
+        console.log(doc.id);
+        res.redirect('https://google.com.ua/');
+    //    res.redirect(`/classified/${doc.id}`);
+    };
+//Тут логіка по додаванню нових ключових слів і отриманню ід, існуючих
+/*
+    async function processArray() { 
+        const keywords = JSON.parse(req.body.keywordsinput);
+        let keywordsArray = [];
+        console.log(keywords);
+        console.log(typeof(keywords));
+           
+        for (const element of keywords) {
+            let keywordID;          
+            keywordID = await KeywordsModel.find({ keyword: element.value }).exec();
+            console.log(keywordID)
+            if(!keywordID) {
+                keywordID = await KeywordsModel.create({ keyword: element.value }); 
+                console.log(keywordID);
+                keywordsArray.push(keywordID._id);
+            } else {
+                console.log(keywordID);
+                keywordsArray.push(keywordID._id);
+            }
+                        
+        }
+        console.log('Done');
+        console.log(keywordsArray);
+    }
+    processArray();
+    
 
+    
+    const keywordsProcess = () => {
+        let keywordsArray = [];
+        console.log(keywords);
+        let count_success = keywords.length;
+        console.log(count_success);        
+        keywords.forEach(async element => {
+            let keywordID;            
+            keywordID = await KeywordsModel.find({ keyword: element.value }).exec();
+            console.log(keywordID);
+            count_success--;
+            if(!keywordID) {
+                keywordID = await KeywordsModel.create({ keyword: element.value });  
+            };
+            console.log(keywordID);
+            keywordsArray.push(keywordID._id);
+            if(count_success == 0) {
+                console.log(keywordsArray);
+         //       createPost(keywordsArray); 
+            }             
+        });              
+    };
+    
+    keywordsProcess();
+    
+    
+   
+});
+*/
 //post comment
 server.post('/postcomment', bodyParser.json() , async (req, res) => {
     const doc = await CommentModel.create({
@@ -107,16 +188,4 @@ server.get('/keys', async (req, res) => {
 });
 
 
-const init = async  () => {
-    
- //   console.log('start');
- //   const doc = await KeywordsModel.create({
- //       keyword: 'вікна',
- //   });
- //   const booksList = await PostModel.find({}, ).populate('keywords');
- //   console.log(booksList);
-  //  res.send(JSON.stringify(booksList));
-//  635e70140ee349d5b3f7246b
- };
-  init();
 

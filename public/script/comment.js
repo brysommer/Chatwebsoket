@@ -70,7 +70,7 @@ const renderData = () => {
     el8.innerHTML = contentData.createdAt;
     el9.innerHTML = contentData.updatedAt;    
     el10.innerHTML = contentData.price;
-    el11.src = `/img/${contentData.picture}.jpg`;
+    el11.src = `/img/${contentData.picture}`;
 };
 
 //rendering comments

@@ -179,6 +179,8 @@ server.post('/postcomment', bodyParser.json() , async (req, res) => {
     console.log(req.body.params);
     console.log(doc._id);
     console.log(PostUpdate);
+    const id = req.body.params;
+    res.redirect(`/classified/${id}`);  
 }); 
 
 //getting keywords list

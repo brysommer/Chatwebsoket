@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/bootstrap-icons.css">
     <link rel="stylesheet" href="/style/main.css">
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <title>Базарчик</title>
 </head>
 <body>
@@ -44,14 +43,14 @@
         <div class="col">
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="visually-hidden" >Детальний опис</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" placeholder="Ваш коменнтар. Обмеження 280 символів" rows="3"></textarea>
+                <textarea required class="form-control" id="exampleFormControlTextarea1" name="comment" placeholder="Ваш коменнтар. Обмеження 280 символів" rows="3"></textarea>
             </div>
         </div>  
     </div>      
     <div class="row">
         <div class="col">
             <label for="inputPassword2" class="visually-hidden"></label>
-                <input type="text" class="form-control" id="inputPassword2" name="author" placeholder="Ваше імя чи нікнейм">
+                <input type="text" required class="form-control" id="inputPassword2" name="author" placeholder="Ваше імя чи нікнейм">
         </div>
         <div class="col">
         </div>

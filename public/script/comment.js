@@ -1,5 +1,6 @@
 //comment consts
-const postButton = document.querySelector('button[name="post"]');
+const form = document.getElementById('form');
+//const postButton = document.querySelector('button[name="post"]');
 const el1 = document.querySelector('input[name="author"]');
 const el2 = document.querySelector('textarea[name="comment"]');
 //rendering card consts
@@ -31,19 +32,6 @@ const getData = async () => {
     createKeysData();
     renderData();
     renderComments();
- /*  await axios.get(`/json/${params}`)
-   .then(function (response) {
-      // handle success
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-   })
-    .finally(function () {
-      // always executed
-   });
-  */ 
 };
 getData();
 
@@ -96,11 +84,13 @@ const renderComments = () =>{
 
 //posting comments data to server
 const postData = async () => {
+    console.log('function start');
     const data = {
         author: el1.value,
         comment: el2.value,
         params
     };
+    console.log(data);
     await axios({
         method: 'post',
         url: '/postcomment',
@@ -117,9 +107,21 @@ const postData = async () => {
 };
 
 
+function serializeForm(formNode) {
+    return new FormData(formNode)
+  }
 
+  
 //events
-postButton.addEventListener('click', (click) => {
+
+form.addEventListener('submit', (event) => {
+    console.log('clicked')
+    event.preventDefault();
+    data = serializeForm(form);
+    console.log(Array.from(data.entries()))
     postData();
 });
+
+
+  
 

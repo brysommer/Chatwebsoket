@@ -9,7 +9,7 @@ const KeywordsModel = require('./models/keyword');
 const PostModel = require('./models/post');
 const CommentModel = require('./models/comment');
 const bodyParser = require('body-parser');
-const axios = require('axios');
+//const axios = require('axios');
 const { setTimeout } = require('timers/promises');
 const { count } = require('console');
 
@@ -166,6 +166,7 @@ server.post('/postad', uploads.none(), bodyParser.json() , async (req, res) => {
 */
 //post comment
 server.post('/postcomment', bodyParser.json() , async (req, res) => {
+    console.log(req.body);
     const doc = await CommentModel.create({
         author: req.body.author,
         comment: req.body.comment,

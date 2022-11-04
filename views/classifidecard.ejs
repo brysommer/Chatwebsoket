@@ -39,25 +39,27 @@
   <!--    -->
     </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="visually-hidden" >Детальний опис</label>
-                <textarea required class="form-control" id="exampleFormControlTextarea1" name="comment" placeholder="Ваш коменнтар. Обмеження 280 символів" rows="3"></textarea>
-            </div>
-        </div>  
-    </div>      
-    <div class="row">
-        <div class="col">
-            <label for="inputPassword2" class="visually-hidden"></label>
+    <form action="/postcomment" method="post" id="form" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="visually-hidden" >Детальний опис</label>
+                    <textarea required class="form-control" id="exampleFormControlTextarea1" name="comment" placeholder="Ваш коменнтар. Обмеження 280 символів" rows="3"></textarea>
+                </div>
+            </div>  
+        </div>      
+        <div class="row">
+            <div class="col">
+                <label for="inputPassword2" class="visually-hidden"></label>
                 <input type="text" required class="form-control" id="inputPassword2" name="author" placeholder="Ваше імя чи нікнейм">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            <button type="submit" name="post" id="sub" class="btn btn-outline-primary">Залишити коментар</button>
+            </div>
         </div>
-        <div class="col">
-        </div>
-        <div class="col">
-        <button type="button" name="post" class="btn btn-outline-primary">Залишити коментар</button>
-        </div>
-    </div>
+    </form>
 </div>
 <script src="/script/comment.js"></script>
 </body>

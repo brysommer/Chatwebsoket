@@ -26,12 +26,13 @@ console.log(params);
 
 //getting data from server
 const getData = async () => {
-    const {data}  = await axios.get(`/json/${params}`);
+    const {data}  = await axios.get(`/json/${params}`)
     console.log(data);
     contentData = data;
     createKeysData();
     renderData();
     renderComments();
+
 };
 getData();
 
@@ -72,25 +73,48 @@ const renderComments = () =>{
                 <h6 class="card-subtitle mb-2 text-muted">${element.createAt}</h6>
                 <p class="card-text">${element.comment}</p>
                 <a href="#" class="card-link">Відповісти</a>
+                <img class='like' src="/img/svg/like.svg" alt="${element._id}"> 
                 <a href="#" class="card-link">+</a>
+                <span class="rating">${element.rating}</span>    
                 <a href="#" class="card-link">-</a>
+                <img class='dislike' src="/img/svg/dislike.svg" alt="${element._id}"> 
+
             </div>   
         </div>
         `;
     });
     el12.innerHTML = HTML;
+    //rating changing
+    const dislike = document.querySelectorAll('.dislike');
+    const like = document.querySelectorAll('.like');
+    dislike.forEach(element => {
+        element.addEventListener('click', (event) => {
+            const id = event.target.alt;
+            console.log(id);
+          })
+    })
+    like.forEach(element => {
+        element.addEventListener('click', (event) => {
+            const id = event.target.alt;
+            console.log(id);
+          })
+    })
+    
+
 };
 
 
 //posting comments data to server
-const postData = async () => {
+const postData = async (rating) => {
     console.log('function start');
     const data = {
         author: el1.value,
         comment: el2.value,
-        params
+        params,
+        rating
     };
     console.log(data);
+
     await axios({
         method: 'post',
         url: '/postcomment',
@@ -100,6 +124,7 @@ const postData = async () => {
     .then(function(response) {
         console.log('Ответ сервера успешно получен!');
         console.log(response.data);
+        getData();
         })
     .catch(function(error) {
         console.log(error);
@@ -121,6 +146,10 @@ form.addEventListener('submit', (event) => {
     console.log(Array.from(data.entries()))
     postData();
 });
+
+
+  
+
 
 
   

@@ -1,3 +1,4 @@
+
 //comment consts
 const form = document.getElementById('form');
 //const postButton = document.querySelector('button[name="post"]');
@@ -73,12 +74,9 @@ const renderComments = () =>{
                 <h6 class="card-subtitle mb-2 text-muted">${element.createAt}</h6>
                 <p class="card-text">${element.comment}</p>
                 <a href="#" class="card-link">Відповісти</a>
-                <img class='like' src="/img/svg/like.svg" alt="${element._id}"> 
-                <a href="#" class="card-link">+</a>
-                <span class="rating">${element.rating}</span>    
-                <a href="#" class="card-link">-</a>
+                <img class='like' src="/img/svg/like.svg" alt="${element._id}">                 
+                <span class="rating">${element.rating}</span>                 
                 <img class='dislike' src="/img/svg/dislike.svg" alt="${element._id}"> 
-
             </div>   
         </div>
         `;
@@ -90,17 +88,19 @@ const renderComments = () =>{
     dislike.forEach(element => {
         element.addEventListener('click', (event) => {
             const id = event.target.alt;
-            console.log(id);
+            const like = 0;
+            postingLikes(like, id);
+            console.log(id);            
           })
     })
-    like.forEach(element => {
-        element.addEventListener('click', (event) => {
+    like.forEach( element => {
+        element.addEventListener('click',async (event) => {
             const id = event.target.alt;
+            const like = 1;
+            postingLikes(like, id);            
             console.log(id);
           })
     })
-    
-
 };
 
 
@@ -147,8 +147,19 @@ form.addEventListener('submit', (event) => {
     postData();
 });
 
-
-  
+//posting likes to server
+const postingLikes = async (like, id) => {
+    await axios.post('/rating', {
+        id: id,
+        like: like,
+    }).then(function (response) {
+        console.log(response);
+        getData();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}  
 
 
 

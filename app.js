@@ -111,5 +111,25 @@ server.get('/keys', async (req, res) => {
     res.send(JSON.stringify(keysList));
 });
 
+server.post('/rating', bodyParser.json(), async (req, res) => {
+    console.log(req.body);
+    like = req.body.like;
+    let ratingValue = 0;
+    if (like) {
+        ratingValue = 1;
+    } else {
+        ratingValue = -1;
+    }
+    console.log(ratingValue);
+    const PostUpdate = await CommentModel.updateOne(
+        { _id: req.body.id },
+        {
+          $inc: { rating: ratingValue } 
+        } 
+    );
+    console.log(PostUpdate);
+    ratingValue = 0;
+    res.status(200).send('Rating changed');
+})
 
 

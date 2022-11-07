@@ -17,7 +17,7 @@ const getAddsData = async () => {
         HTML += `
         <div class="col">
             <div class="card h-100">
-              <img src="/img/${element.picture}.jpg" class="card-img-top" alt="...">
+              <img src="/img/${element.picture}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">${element.title}</h5>
                 <p class="card-text">${keywordsString}</p>

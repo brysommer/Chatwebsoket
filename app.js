@@ -92,7 +92,6 @@ server.post('/postcomment', bodyParser.json() , async (req, res) => {
     const doc = await CommentModel.create({
         author: req.body.author,
         comment: req.body.comment,
-        rating
     });
     const PostUpdate = await PostModel.updateOne(
         { _id: req.body.params },

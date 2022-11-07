@@ -63,8 +63,12 @@ const renderData = () => {
     el11.src = `/img/${contentData.picture}`;
 };
 
+
 //rendering comments
 const renderComments = () =>{
+    let commentsArray = contentData.comments;
+    commentsArray.sort((a, b) => b.rating > a.rating ? 1 : -1);
+ 
     let HTML = '';
     contentData.comments.forEach(element => {
         HTML += `

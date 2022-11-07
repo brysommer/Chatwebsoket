@@ -31,7 +31,7 @@ server.get('/', (req, res) => {
     res.render('index');
 });
 
-server.get('/classified/:id', async (req, res) => {
+server.get('/classified/:id', (req, res) => {
     res.render('classifidecard');
 });
 

@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 //const axios = require('axios');
 const { setTimeout } = require('timers/promises');
 const { count } = require('console');
+const { populate } = require('./models/keyword');
 
 server.use(express.static('public'));
 server.set('view engine', 'ejs');
@@ -37,7 +38,14 @@ server.get('/classified/:id', (req, res) => {
 
 server.get('/json/:id', async (req, res) => {
     const { id } = req.params;
+    let commentsArray = [];
     const data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
+    data.comments.forEach(async element => {
+        const data = await CommentModel.findOne({ _id: element._id }).populate('reply');
+        console.log(data);        
+        commentsArray.push(data);
+    })
+    console.log(commentsArray);
     res.send(JSON.stringify(data)); 
 });
 
@@ -93,15 +101,30 @@ server.post('/postcomment', bodyParser.json() , async (req, res) => {
         author: req.body.author,
         comment: req.body.comment,
     });
-    const PostUpdate = await PostModel.updateOne(
-        { _id: req.body.params },
-        {
-          $push: { comments: doc.id }  
-        } 
-    );
-    console.log(req.body.params);
+    //reply
+    const replyData = req.body.reply;
+    if (replyData) {
+        const CommentReply = await CommentModel.updateOne(
+            { _id: req.body.reply },
+            {
+              $push: { reply: doc.id }  
+            } 
+        );
+        console.log(CommentReply);
+
+    } else {
+        const PostUpdate = await PostModel.updateOne(
+            { _id: req.body.params },
+            {
+              $push: { comments: doc.id }  
+            } 
+        );
+        console.log(PostUpdate);
+
+    }
+    
+    console.log(req.body.reply);
     console.log(doc._id);
-    console.log(PostUpdate);
     res.status(200).send('Comment created');
 }); 
 
@@ -130,6 +153,11 @@ server.post('/rating', bodyParser.json(), async (req, res) => {
     console.log(PostUpdate);
     ratingValue = 0;
     res.status(200).send('Rating changed');
+})
+
+server.get('/reply', async (req, res) => {
+    const keysList = await CommentModel.find({}).populate('reply').exec();
+    res.send(JSON.stringify(keysList));
 })
 
 

@@ -1,7 +1,6 @@
 
 //comment consts
 const form = document.getElementById('form');
-//const postButton = document.querySelector('button[name="post"]');
 const el1 = document.querySelector('input[name="author"]');
 const el2 = document.querySelector('textarea[name="comment"]');
 //rendering card consts
@@ -20,7 +19,8 @@ const el13 = document.querySelector('span[name="keywords"]');
 const el12 = document.querySelector('div[name=allcomments]');
 //params consts
 let url = window.location.href;
-const slicedUrl = url.split('/');
+clearedURl = url.split('#')[0];
+const slicedUrl = clearedURl.split('/');
 const params = slicedUrl[4];
 console.log(params);
 
@@ -48,8 +48,6 @@ const createKeysData = () => {
     el13.innerHTML = HTML;
 };
 
-
-
 //rendering data
 const renderData = () => {
     el3.innerHTML = contentData.title;
@@ -63,7 +61,6 @@ const renderData = () => {
     el11.src = `/img/${contentData.picture}`;
 };
 
-
 //rendering comments
 const renderComments = () =>{
     let commentsArray = contentData.comments;
@@ -73,11 +70,11 @@ const renderComments = () =>{
     contentData.comments.forEach(element => {
         HTML += `
         <div class="card text-start" style="width: 100%;">
-            <div class="card-body">
+            <div class="card-body" id="${element._id}">
                 <h5 class="card-title">${element.author}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${element.createAt}</h6>
                 <p class="card-text">${element.comment}</p>
-                <a href="#" class="card-link">Відповісти</a>
+                <a href="#exampleFormControlTextarea1" id="${element.author}" class="card-link">Відповісти</a>
                 <img class='like' src="/img/svg/like.svg" alt="${element._id}">                 
                 <span class="rating">${element.rating}</span>                 
                 <img class='dislike' src="/img/svg/dislike.svg" alt="${element._id}"> 
@@ -89,6 +86,15 @@ const renderComments = () =>{
     //rating changing
     const dislike = document.querySelectorAll('.dislike');
     const like = document.querySelectorAll('.like');
+    const commentRes = document.querySelectorAll('a[href="#exampleFormControlTextarea1"]');
+    commentRes.forEach(element => {
+        element.addEventListener('click', (event) => {
+            const author = event.target.id;
+            const id = event.path[1].id;
+            el2.id = id; 
+            el2.value = author + ', ';           
+          })
+    })
     dislike.forEach(element => {
         element.addEventListener('click', (event) => {
             const id = event.target.alt;
@@ -107,15 +113,14 @@ const renderComments = () =>{
     })
 };
 
-
 //posting comments data to server
-const postData = async (rating) => {
+const postData = async () => {
     console.log('function start');
     const data = {
         author: el1.value,
         comment: el2.value,
         params,
-        rating
+        reply: el2.id,
     };
     console.log(data);
 
@@ -135,14 +140,11 @@ const postData = async (rating) => {
     });    
 };
 
-
 function serializeForm(formNode) {
     return new FormData(formNode)
   }
 
-  
 //events
-
 form.addEventListener('submit', (event) => {
     console.log('clicked')
     event.preventDefault();

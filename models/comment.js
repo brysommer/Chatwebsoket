@@ -25,6 +25,7 @@ const generalSchema = new Schema({
     },
     reply: [{
         type: Schema.Types.ObjectId,
+        ref: 'Comments',
     }]
 });
 

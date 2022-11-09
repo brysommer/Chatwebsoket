@@ -13,6 +13,7 @@ const bodyParser = require('body-parser');
 const { setTimeout } = require('timers/promises');
 const { count } = require('console');
 const { populate } = require('./models/keyword');
+const { response } = require('express');
 
 server.use(express.static('public'));
 server.set('view engine', 'ejs');
@@ -38,14 +39,13 @@ server.get('/classified/:id', (req, res) => {
 
 server.get('/json/:id', async (req, res) => {
     const { id } = req.params;
-    let commentsArray = [];
-    const data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
-    data.comments.forEach(async element => {
-        const data = await CommentModel.findOne({ _id: element._id }).populate('reply');
-        console.log(data);        
-        commentsArray.push(data);
-    })
-    console.log(commentsArray);
+    let data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
+    let promises = 
+    data.comments.map(async element => {        
+        return await CommentModel.findOne({ _id: element._id }).populate('reply')       
+    });
+    const result = await Promise.all(promises);
+    data.comments = result;    
     res.send(JSON.stringify(data)); 
 });
 

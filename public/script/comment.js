@@ -2,7 +2,7 @@
 //comment consts
 const form = document.getElementById('form');
 const el1 = document.querySelector('input[name="author"]');
-const el2 = document.querySelector('textarea[name="comment"]');
+const el2 = document.getElementById('exampleFormControlTextarea1');
 //rendering card consts
 let contentData;
 const el3 = document.querySelector('span[name="title"]');
@@ -68,18 +68,44 @@ const renderComments = () =>{
  
     let HTML = '';
     contentData.comments.forEach(element => {
+        let replies = ''
+        element.reply.forEach(element => {
+            replies += `
+                <div class="row justify-content-end">           
+                    <div class="col-9 align-self-end">
+                        <div class="card text-start" style="width: 100%;">
+                            <div class="card-body" id="${element._id}">
+                                <h5 class="card-title">${element.author}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">${element.createAt}</h6>
+                                <p class="card-text">${element.comment}</p>
+                                <a href="#exampleFormControlTextarea1" id="${element.author}" class="card-link">Відповісти</a>
+                                <img class='like' src="/img/svg/like.svg" alt="${element._id}">                 
+                                <span class="rating">${element.rating}</span>                 
+                                <img class='dislike' src="/img/svg/dislike.svg" alt="${element._id}"> 
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            `
+        })
         HTML += `
+        <div class="row">
+        <div class="col">
         <div class="card text-start" style="width: 100%;">
             <div class="card-body" id="${element._id}">
-                <h5 class="card-title">${element.author}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${element.createAt}</h6>
+                <h6 class="card-title">${element.author}</h6>
+                
                 <p class="card-text">${element.comment}</p>
                 <a href="#exampleFormControlTextarea1" id="${element.author}" class="card-link">Відповісти</a>
                 <img class='like' src="/img/svg/like.svg" alt="${element._id}">                 
                 <span class="rating">${element.rating}</span>                 
                 <img class='dislike' src="/img/svg/dislike.svg" alt="${element._id}"> 
+                <span class="text-muted">${element.createAt}</span>
             </div>   
         </div>
+        </div>
+        </div>
+        ${replies}
         `;
     });
     el12.innerHTML = HTML;
@@ -91,7 +117,7 @@ const renderComments = () =>{
         element.addEventListener('click', (event) => {
             const author = event.target.id;
             const id = event.path[1].id;
-            el2.id = id; 
+            el2.name = id; 
             el2.value = author + ', ';           
           })
     })
@@ -120,7 +146,7 @@ const postData = async () => {
         author: el1.value,
         comment: el2.value,
         params,
-        reply: el2.id,
+        reply: el2.name,
     };
     console.log(data);
 
@@ -166,6 +192,12 @@ const postingLikes = async (like, id) => {
         console.log(error);
       });
 }  
+
+const el14 = document.querySelector('button[name=clear]')
+el14.addEventListener('click', (e) => {
+    el2.name = ''; 
+    el2.value = ''; 
+})
 
 
 

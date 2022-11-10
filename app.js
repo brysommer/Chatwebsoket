@@ -49,7 +49,14 @@ server.get('/json/:id', async (req, res) => {
     res.send(JSON.stringify(data)); 
 });
 
-server.get('/getAdds', async (req, res) => {
+server.get('/getAdds/', async (req, res) => {
+    let data = await PostModel.find({}).populate('keywords').exec();
+    data.sort((a, b) => b.createAt > a.createAt ? 1 : -1);
+    res.send(JSON.stringify(data)); 
+});
+
+//filter
+server.get('/filter/:id', async (req, res) => {
     const data = await PostModel.find({}).populate('keywords').exec();
     res.send(JSON.stringify(data)); 
 });

@@ -1,25 +1,24 @@
 //constants defination
 const el1 = document.querySelector('div[name="cards_container"]');
-
+const el2 = document.querySelector('div[name="keys"]');
 
 //getAdds data
 const getAddsData = async () => {
-    let HTML = '';
-    
+    let HTML = '';    
     const {data}  = await axios.get('/getAdds');
     console.log(data);
     data.forEach(element => {
         let keywordsString ='';
         const keywords = element.keywords;
         keywords.forEach(element => {
-            keywordsString += element.keyword + ' ';
+            keywordsString += ` <a class="nodec" href="/filter/${element._id}">#${element.keyword}</a>  `;
         });
         HTML += `
         <div class="col">
             <div class="card h-100">
-              <img src="/img/${element.picture}" class="card-img-top" alt="...">
+              <a  href="/classified/${element._id}"><img src="/img/${element.picture}" class="card-img-top" alt="..."></a>
               <div class="card-body">
-                <h5 class="card-title">${element.title}</h5>
+                <a class="nodec" href="/classified/${element._id}"><h5 class="card-title">${element.title}</h5></a>
                 <p class="card-text">${keywordsString}</p>
                 <h5>${element.price} грн</h5>
               </div>
@@ -34,3 +33,12 @@ const getAddsData = async () => {
 //events
 getAddsData();
 
+const renderKeywords = async () => {
+  let keywordsHTML = '';
+  const {data}  = await axios.get('/keys');
+  data.forEach(element => {
+    keywordsHTML += ` <a class="nodec" href="/filter/${element._id}">#${element.keyword}</a>  `;
+  });
+  el2.innerHTML = keywordsHTML;
+};
+renderKeywords()

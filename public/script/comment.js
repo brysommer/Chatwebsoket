@@ -43,7 +43,7 @@ const createKeysData = () => {
     let keysArray = contentData.keywords;
     keysArray.forEach(element => {
         console.log(element.keyword);
-        HTML += `<a href="#">#${element.keyword}</a> `;
+        HTML += `<a href="/filter/${element._id}">#${element.keyword}</a> `;
     });
     el13.innerHTML = HTML;
 };
@@ -65,9 +65,11 @@ const renderData = () => {
 const renderComments = () =>{
     let commentsArray = contentData.comments;
     commentsArray.sort((a, b) => b.rating > a.rating ? 1 : -1);
- 
+    
     let HTML = '';
     contentData.comments.forEach(element => {
+        let repliesArray = element.reply;
+        repliesArray.sort((a, b) => b.rating > a.rating ? 1 : -1);
         let replies = ''
         element.reply.forEach(element => {
             replies += `
@@ -126,7 +128,7 @@ const renderComments = () =>{
             const id = event.target.alt;
             const like = 0;
             postingLikes(like, id);
-            console.log(id);            
+            console.log(id);         
           })
     })
     like.forEach( element => {
@@ -180,6 +182,7 @@ form.addEventListener('submit', (event) => {
 });
 
 //posting likes to server
+
 const postingLikes = async (like, id) => {
     await axios.post('/rating', {
         id: id,
@@ -193,6 +196,8 @@ const postingLikes = async (like, id) => {
       });
 }  
 
+
+//clear reply reffer
 const el14 = document.querySelector('button[name=clear]')
 el14.addEventListener('click', (e) => {
     el2.name = ''; 

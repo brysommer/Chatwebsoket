@@ -3,3 +3,8 @@ body {
     width: 800px;
     background-color: #ACB5BD;
     }
+
+.nodec {
+    text-decoration: none;
+    color: black;
+    }

@@ -53,3 +53,7 @@ span {
 p {
   margin-block-end: 0.5em;
 }
+
+.nodec {
+  text-decoration: none;
+}

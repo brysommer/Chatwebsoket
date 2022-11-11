@@ -2,10 +2,24 @@
 const el1 = document.querySelector('div[name="cards_container"]');
 const el2 = document.querySelector('div[name="keys"]');
 
+//filter routes
+let url = window.location.href;
+const slicedUrl = url.split('/');
+const params = slicedUrl[4];
+console.log(params);
+
+//choose right rought
+let route
+if (params) {
+  route = `/getAddsfilter/${params}`;
+} else {
+  route = '/getAdds';
+}
+
 //getAdds data
 const getAddsData = async () => {
     let HTML = '';    
-    const {data}  = await axios.get('/getAdds');
+    const {data}  = await axios.get(route);
     console.log(data);
     data.forEach(element => {
         let keywordsString ='';

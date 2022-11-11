@@ -37,6 +37,12 @@ server.get('/classified/:id', (req, res) => {
     res.render('classifidecard');
 });
 
+server.get('/filter/:id', (req, res) => {
+    res.render('index');
+});
+
+
+
 server.get('/json/:id', async (req, res) => {
     const { id } = req.params;
     let data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
@@ -56,8 +62,9 @@ server.get('/getAdds/', async (req, res) => {
 });
 
 //filter
-server.get('/filter/:id', async (req, res) => {
-    const data = await PostModel.find({}).populate('keywords').exec();
+server.get('/getAddsfilter/:id', async (req, res) => {
+    const { id } = req.params;
+    const data = await PostModel.find({ keywords: id }).populate('keywords').exec();
     res.send(JSON.stringify(data)); 
 });
 

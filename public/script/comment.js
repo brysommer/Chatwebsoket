@@ -81,12 +81,12 @@ const renderComments = () =>{
                         <div class="card text-start" style="width: 100%;">
                             <div class="card-body" id="${element._id}">
                                 <h5 class="card-title">${element.author}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">${moment(element.createAt).format('lll')}</h6>
                                 <p class="card-text">${element.comment}</p>
                                 <a href="#exampleFormControlTextarea1" id="${element.author}" class="card-link">Відповісти</a>
                                 <img class='like' src="/img/svg/like.svg" alt="${element._id}">                 
                                 <span class="rating">${element.rating}</span>                 
                                 <img class='dislike' src="/img/svg/dislike.svg" alt="${element._id}"> 
+                                <span class="text-muted">${moment(element.createAt).format('lll')}</span>
                             </div>   
                         </div>
                     </div>

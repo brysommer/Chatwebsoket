@@ -28,7 +28,7 @@ const el10 = document.querySelector('input[name="keywordsinput"]');
         "modelName": "Address",
         "calledMethod": "searchSettlements",
         "methodProperties": {
-            "CityName": "рівне",
+            "CityName": "київ",
             "Limit": "50",
             "Page": "2"
         }

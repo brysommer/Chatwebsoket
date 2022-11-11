@@ -2,9 +2,13 @@ body {
     margin: 0 auto;
     width: 800px;
     background-color: #ACB5BD;
-    }
+}
 
 .nodec {
     text-decoration: none;
     color: black;
-    }
+}
+
+p {
+    margin-block-end: 0.5em;
+}

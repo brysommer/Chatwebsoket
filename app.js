@@ -9,7 +9,8 @@ const KeywordsModel = require('./models/keyword');
 const PostModel = require('./models/post');
 const CommentModel = require('./models/comment');
 const bodyParser = require('body-parser');
-//const axios = require('axios');
+const moment = require('moment'); 
+let now = moment().toDate();
 const { setTimeout } = require('timers/promises');
 const { count } = require('console');
 const { populate } = require('./models/keyword');
@@ -44,8 +45,9 @@ server.get('/filter/:id', (req, res) => {
 
 
 server.get('/json/:id', async (req, res) => {
+    
     const { id } = req.params;
-    let data = await PostModel.findOne({ _id: id }).populate('keywords').populate('comments').exec();
+    let data = await PostModel.findOne({ _id: id } ).populate('keywords').populate('comments').exec();
     let promises = 
     data.comments.map(async element => {        
         return await CommentModel.findOne({ _id: element._id }).populate('reply')       
@@ -65,6 +67,8 @@ server.get('/getAdds/', async (req, res) => {
 server.get('/getAddsfilter/:id', async (req, res) => {
     const { id } = req.params;
     const data = await PostModel.find({ keywords: id }).populate('keywords').exec();
+    data.sort((a, b) => b.createAt > a.createAt ? 1 : -1);
+    console.log(data)
     res.send(JSON.stringify(data)); 
 });
 

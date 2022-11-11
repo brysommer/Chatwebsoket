@@ -6,7 +6,11 @@ const el1 = document.querySelector('input[name="author"]');
 const el2 = document.querySelector('input[name="phone"]');
 /*
 const el3 = document.querySelector('input[name="location"]');
+*/
 const el4 = document.querySelector('input[name="title"]');
+
+
+/*
 const el5 = document.querySelector('textarea[name="content"]');
 const el6 = document.querySelector('input[name="picture"]');
 const el7 = document.querySelector('input[name="keywords"]');
@@ -37,6 +41,7 @@ getLocations();
 
 //keywors list arrange
 /*
+let keywordsList = [];
 const keysArrange = () => {
     console.log(el10.value);
     let data = JSON.parse(el10.value);
@@ -90,12 +95,22 @@ const getKeys = async () => {
         whitelist: keywordsArray,
         maxTags: 10,
         dropdown: {
-          maxItems: 20,           // <- mixumum allowed rendered suggestions
-          classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
-          enabled: 0,             // <- show suggestions on focus
-          closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
+            maxItems: 20,           // <- mixumum allowed rendered suggestions
+            classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+            enabled: 0,             // <- show suggestions on focus
+            closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
         }
-      });  
+    });
+    
+    
+    //keywords from title
+    let array
+    el4.addEventListener('change',  (event) => {
+    array = el4.value.split(' ');
+    array.forEach(element => {
+        tagify.whitelist.push(element);
+    })
+    })  
 };
 
 

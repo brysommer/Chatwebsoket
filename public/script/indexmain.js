@@ -1,3 +1,4 @@
+moment.locale('uk');
 //constants defination
 const el1 = document.querySelector('div[name="cards_container"]');
 const el2 = document.querySelector('div[name="keys"]');
@@ -34,6 +35,7 @@ const getAddsData = async () => {
               <div class="card-body">
                 <a class="nodec" href="/classified/${element._id}"><h5 class="card-title">${element.title}</h5></a>
                 <p class="card-text">${keywordsString}</p>
+                <p class="muted card-text">${moment(element.createAt).format('lll')} - ${element.location}</p>
                 <h5>${element.price} грн</h5>
               </div>
             </div>

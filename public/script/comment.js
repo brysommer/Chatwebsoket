@@ -17,12 +17,14 @@ const el11 = document.querySelector('img[name=pic]');
 const el13 = document.querySelector('span[name="keywords"]');
 //comments const
 const el12 = document.querySelector('div[name=allcomments]');
+moment.locale('uk');
 //params consts
 let url = window.location.href;
 clearedURl = url.split('#')[0];
 const slicedUrl = clearedURl.split('/');
 const params = slicedUrl[4];
 console.log(params);
+
 
 
 //getting data from server
@@ -48,6 +50,7 @@ const createKeysData = () => {
     el13.innerHTML = HTML;
 };
 
+
 //rendering data
 const renderData = () => {
     el3.innerHTML = contentData.title;
@@ -55,8 +58,8 @@ const renderData = () => {
     el5.innerHTML = contentData.author;
     el6.innerHTML = contentData.location;
     el7.innerHTML = contentData.phone;
-    el8.innerHTML = contentData.createdAt;
-    el9.innerHTML = contentData.updatedAt;    
+    el8.innerHTML = moment(contentData.createdAt).format('lll');
+    el9.innerHTML = moment(contentData.updatedAt).format('lll');   
     el10.innerHTML = contentData.price;
     el11.src = `/img/${contentData.picture}`;
 };
@@ -78,7 +81,7 @@ const renderComments = () =>{
                         <div class="card text-start" style="width: 100%;">
                             <div class="card-body" id="${element._id}">
                                 <h5 class="card-title">${element.author}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">${element.createAt}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">${moment(element.createAt).format('lll')}</h6>
                                 <p class="card-text">${element.comment}</p>
                                 <a href="#exampleFormControlTextarea1" id="${element.author}" class="card-link">Відповісти</a>
                                 <img class='like' src="/img/svg/like.svg" alt="${element._id}">                 
@@ -102,7 +105,7 @@ const renderComments = () =>{
                 <img class='like' src="/img/svg/like.svg" alt="${element._id}">                 
                 <span class="rating">${element.rating}</span>                 
                 <img class='dislike' src="/img/svg/dislike.svg" alt="${element._id}"> 
-                <span class="text-muted">${element.createAt}</span>
+                <span class="text-muted">${moment(element.createAt).format('lll')}</span>
             </div>   
         </div>
         </div>

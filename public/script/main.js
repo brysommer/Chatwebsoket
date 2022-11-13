@@ -1,87 +1,35 @@
-//constants defination
-
-/*const postButton = document.querySelector('button[name="send"]');
-const el1 = document.querySelector('input[name="author"]');
-*/
 const el2 = document.querySelector('input[name="phone"]');
-/*
-const el3 = document.querySelector('input[name="location"]');
-*/
 const el4 = document.querySelector('input[name="title"]');
-
-
-/*
-const el5 = document.querySelector('textarea[name="content"]');
-const el6 = document.querySelector('input[name="picture"]');
-const el7 = document.querySelector('input[name="keywords"]');
-const el8 = document.querySelector('input[name="price"]');
-// const el9 = document.querySelector('datalist[name="keys"]');
-*/
 const el10 = document.querySelector('input[name="keywordsinput"]');
-// let keywordsList = [];
-
-
+const locationInput = document.querySelector('input[name="location"');
+const locationOptions = document.getElementById('datalistOpt');
+console.log(locationInput)
+console.log(locationOptions)
+locationInput.addEventListener('keypress',async (e) => {
+    let HTML = '';
+    const str = locationInput.value;
+    const data = await getLocations(str);
+    console.log(data)
+    data.forEach(element => {
+        HTML += `<option value="${element.MainDescription} - ${element.Area}">`
+    })
+    locationOptions.innerHTML = HTML;
+})
 //Get locations from NP
- const getLocations = async () => {
-    const res = await axios.get('https://api.novaposhta.ua/v2.0/json/', { params: {
+ const getLocations = async (str) => {
+    const res = await axios.post('https://api.novaposhta.ua/v2.0/json/',  {
         "apiKey": "ad1807f5abe94965f34ef9491cb40338",
         "modelName": "Address",
         "calledMethod": "searchSettlements",
         "methodProperties": {
-            "CityName": "київ",
-            "Limit": "50",
-            "Page": "2"
+            "CityName": `${str}`,
+            "Limit": "10",
+            "Page": "1"
         }
-    } });
-
-console.log(res);
-    
+    } );
+    return res.data.data[0].Addresses;
 };
-getLocations(); 
-
-//keywors list arrange
-/*
-let keywordsList = [];
-const keysArrange = () => {
-    console.log(el10.value);
-    let data = JSON.parse(el10.value);
-    data.forEach(element => {
-        console.log(element.value);
-        keywordsList.push(element.value);
-    });
-    console.log(keywordsList);
-};
-*/
-
-//posting data to server
-/*
-const postData = async () => {
-    keysArrange();
-    const data = {
-        author: el1.value,
-        phone: el2.value,
-        location: el3.value,
-        title: el4.value,
-        content: el5.value,
-        picture: el6.value,
-        keywords: keywordsList,
-        price: el8.value,
-    };
-    await axios({
-        method: 'post',
-        url: '/postad',
-        data: data,
-        headers: { "Content-type": "application/json" }
-        })
-    .then(function(response) {
-        console.log('Ответ сервера успешно получен!');
-        console.log(response.data);
-        })
-    .catch(function(error) {
-        console.log(error);
-    });    
-};
-*/
+ 
 
 //getkeys data
 const getKeys = async () => {
@@ -101,8 +49,6 @@ const getKeys = async () => {
             closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
         }
     });
-    
-    
     //keywords from title
     let array
     el4.addEventListener('change',  (event) => {
@@ -113,28 +59,13 @@ const getKeys = async () => {
     })  
 };
 
-
 //events
 getKeys();
-/*
-postButton.addEventListener('click', (click) => {
-    postData();
-});
-*/
-/*
-//adding kewords
-el10.addEventListener('change', (change) => {
-    console.log(el10.value.value);
-    el7.value = '';
-    el7.value += el10.value;
-    keysArrange();
-});
-*/
+
 //phone input mask
 let im = new Inputmask('+38 (099) 999-99-99');
 im.mask(el2);
 
-//validation
 
 
 

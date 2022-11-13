@@ -15,6 +15,9 @@
     <title>Базарчик</title>
 </head>
 <body>
+    <header>
+        <%- include('header') %>
+        </header>
 <div class="container text-center">
     <div class="row">
         <div class="col">
@@ -39,8 +42,6 @@
     <div class="" name="allcomments">
   <!--    -->
     </div>
-    
-
     <div class="row">
         <form action="/postcomment" method="post" id="form" enctype="multipart/form-data">
         <div class="col">
@@ -62,10 +63,9 @@
         <button type="submit" name="post" id="sub" class="btn btn-outline-primary">Залишити коментар</button>
         </div>
     </form>      
-    </div>
-        
-        
+    </div>      
 </div>
+<%- include('footer') %>    
 <script src="/script/comment.js"></script>
 </body>
 </html>

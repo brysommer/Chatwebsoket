@@ -2,13 +2,11 @@ moment.locale('uk');
 //constants defination
 const el1 = document.querySelector('div[name="cards_container"]');
 const el2 = document.querySelector('div[name="keys"]');
-
 //filter routes
 let url = window.location.href;
 const slicedUrl = url.split('/');
 const params = slicedUrl[4];
 console.log(params);
-
 //choose right rought
 let route
 if (params) {
@@ -16,7 +14,6 @@ if (params) {
 } else {
   route = '/getAdds';
 }
-
 //getAdds data
 const getAddsData = async () => {
     let HTML = '';    
@@ -44,8 +41,6 @@ const getAddsData = async () => {
     });
     el1.innerHTML = HTML;
 };
-
-
 //events
 getAddsData();
 

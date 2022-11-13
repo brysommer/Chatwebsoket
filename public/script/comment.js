@@ -25,8 +25,6 @@ const slicedUrl = clearedURl.split('/');
 const params = slicedUrl[4];
 console.log(params);
 
-
-
 //getting data from server
 const getData = async () => {
     const {data}  = await axios.get(`/json/${params}`)
@@ -35,7 +33,6 @@ const getData = async () => {
     createKeysData();
     renderData();
     renderComments();
-
 };
 getData();
 
@@ -49,7 +46,6 @@ const createKeysData = () => {
     });
     el13.innerHTML = HTML;
 };
-
 
 //rendering data
 const renderData = () => {
@@ -68,7 +64,6 @@ const renderData = () => {
 const renderComments = () =>{
     let commentsArray = contentData.comments;
     commentsArray.sort((a, b) => b.rating > a.rating ? 1 : -1);
-    
     let HTML = '';
     contentData.comments.forEach(element => {
         let repliesArray = element.reply;
@@ -99,7 +94,6 @@ const renderComments = () =>{
         <div class="card text-start" style="width: 100%;">
             <div class="card-body" id="${element._id}">
                 <h6 class="card-title">${element.author}</h6>
-                
                 <p class="card-text">${element.comment}</p>
                 <a href="#exampleFormControlTextarea1" id="${element.author}" class="card-link">Відповісти</a>
                 <img class='like' src="/img/svg/like.svg" alt="${element._id}">                 
@@ -185,7 +179,6 @@ form.addEventListener('submit', (event) => {
 });
 
 //posting likes to server
-
 const postingLikes = async (like, id) => {
     await axios.post('/rating', {
         id: id,
@@ -193,12 +186,11 @@ const postingLikes = async (like, id) => {
     }).then(function (response) {
         console.log(response);
         getData();
-      })
+    })
       .catch(function (error) {
         console.log(error);
-      });
+    });
 }  
-
 
 //clear reply reffer
 const el14 = document.querySelector('button[name=clear]')

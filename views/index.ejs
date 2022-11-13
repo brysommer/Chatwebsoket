@@ -14,6 +14,9 @@
     <title>Базарчік</title>
 </head>
 <body>
+    <header>
+    <%- include('header') %>
+    </header>
     <div class="row">
         <div class="col">
         <div class="card text-center" style="width: 100%;">
@@ -29,7 +32,8 @@
     <div class="row row-cols-1 row-cols-md-3 g-4" name="cards_container">
     <span class="rating"></span>    
     </div>
-      
+    <%- include('footer') %>   
+<script src="/script/search.js"></script> 
 <script src="/script/indexmain.js"></script>    
 </body>
 </html>

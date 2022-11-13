@@ -9,8 +9,6 @@ const KeywordsModel = require('./models/keyword');
 const PostModel = require('./models/post');
 const CommentModel = require('./models/comment');
 const bodyParser = require('body-parser');
-const moment = require('moment'); 
-let now = moment().toDate();
 const { setTimeout } = require('timers/promises');
 const { count } = require('console');
 const { populate } = require('./models/keyword');
@@ -42,7 +40,13 @@ server.get('/filter/:id', (req, res) => {
     res.render('index');
 });
 
-
+server.post('/search', uploads.none(), async (req, res) => {
+    const findBy = req.body.search;
+    const formatted = '/' + findBy + '/i'
+    console.log(formatted)
+    const data = await PostModel.find({ title: /від/i }).populate('keywords').exec();
+    res.send(JSON.stringify(data))
+})
 
 server.get('/json/:id', async (req, res) => {
     

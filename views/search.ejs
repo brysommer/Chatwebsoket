@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer">        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css.map">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/style/indexmain.css">
+    <title>Базарчік</title>
+</head>
+<body>
+    <header>
+    <%- include('header') %>
+    </header>
+   
+    <div class="row row-cols-1 row-cols-md-3 g-4" name="cards_container">
+
+
+        <% data.forEach(element => { %>
+            
+            <div class="col">
+                
+                <div class="card h-100">
+                  <a  href="/classified/${element._id}"><img src="/img/<%= element.picture %>" class="card-img-top" alt="..."></a>
+                  <div class="card-body">
+                    <a class="nodec" href="/classified/${element._id}"><h5 class="card-title"><%= element.title %></h5></a>
+                    <%    element.keywords.forEach(element => { %>
+                        <a class="nodec" href="/filter/<%= element._id %>">#<%= element.keyword %></a>  
+                        <%    }) %>
+                    <p class="muted card-text"><%= element.createdAt %> -  <%= element.location %></p>
+                    <h5><%= element.price %> грн</h5>
+                  </div>
+                </div>
+                
+              </div>
+              
+            <% }) %>
+
+
+    <span class="rating"></span>    
+    </div>
+    <%- include('footer') %>   
+</body>
+</html>

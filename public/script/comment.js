@@ -179,13 +179,20 @@ form.addEventListener('submit', (event) => {
 });
 
 //posting likes to server
-const postingLikes = async (like, id) => {
+let postingLikes = async (like, id) => {
     await axios.post('/rating', {
         id: id,
         like: like,
-    }).then(function (response) {
+    }).then(async function (response) {
         console.log(response);
-        getData();
+        await getData();
+        postingLikes = () => {
+            console.log('likes posting removed')
+        };
+    })
+    .then(function () {
+        postingLikes = () => {};
+
     })
       .catch(function (error) {
         console.log(error);

@@ -86,7 +86,8 @@ const renderComments = () =>{
                         </div>
                     </div>
                 </div>
-            `
+            `;
+            element.reply.forEach(element => { console.log(element)})
         })
         HTML += `
         <div class="row">

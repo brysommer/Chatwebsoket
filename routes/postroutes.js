@@ -8,8 +8,11 @@ const PostModel = require('../models/post');
 const CommentModel = require('../models/comment');
 const KeywordsModel = require('../models/keyword');
 const bodyParser = require('body-parser');
+const validMW = require('../middleware');
+const schema = require('../schema');
 
-router.post('/search', uploads.none(), async (req, res) => {
+router.post('/search', uploads.none(), validMW(schema.search),  async (req, res) => {
+    console.log(req.body)
     const findBy = req.body.search;
     const formatted = '.*' + findBy + '.*'
     console.log(formatted)
@@ -24,6 +27,12 @@ router.post('/search', uploads.none(), async (req, res) => {
 
 // posting add
 router.post('/postad', uploads.single('picture'), async (req, res) => {
+    let pictureName;
+    if (req.file == undefined) {
+        pictureName = 'logo.png';
+    } else {
+        pictureName = req.file.filename;
+    };
     console.log(req.file);
     let keywordsArray = [];
     //creating post
@@ -36,7 +45,7 @@ router.post('/postad', uploads.single('picture'), async (req, res) => {
             content: req.body.content,
             keywords: keywordsArray,
             price: req.body.price,
-            picture: req.file.filename
+            picture: pictureName
         });
         console.log(doc);
         const id = doc._id;
@@ -63,7 +72,7 @@ router.post('/postad', uploads.single('picture'), async (req, res) => {
 });
 
 //post comment
-router.post('/postcomment', bodyParser.json() , async (req, res) => {
+router.post('/postcomment', bodyParser.json(), validMW(schema.comment), async (req, res) => {
     console.log(req.body);
     const doc = await CommentModel.create({
         author: req.body.author,

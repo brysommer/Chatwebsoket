@@ -16,6 +16,14 @@ server.use(getRoutes);
 server.use(postRoutes);
 
 
+server.use((req, res, next) => {
+    res.statusCode = 404;
+    res.render('notfind');
+  });
+
+
+
+
 
 
 

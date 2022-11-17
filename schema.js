@@ -22,11 +22,12 @@ const post = {
             maxLength: 9, 
         },
         keywordsinput: { 
-            type: 'string', 
+            type: 'string',
             minLength: 1,
         },
         location: { 
             type: 'string', 
+            pattern: '.*[-].*', 
             minLength: 1,
             maxLength: 50, 
         },

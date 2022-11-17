@@ -68,13 +68,15 @@ const renderComments = () =>{
     contentData.comments.forEach(element => {
         let repliesArray = element.reply;
         repliesArray.sort((a, b) => b.rating > a.rating ? 1 : -1);
+        const firstLevelId = element._id;
         let replies = ''
         element.reply.forEach(element => {
+            console.log(firstLevelId);
             replies += `
                 <div class="row justify-content-end">           
                     <div class="col-9 align-self-end">
                         <div class="card text-start" style="width: 100%;">
-                            <div class="card-body" id="${element._id}">
+                            <div class="card-body" id="${firstLevelId}">
                                 <h5 class="card-title">${element.author}</h5>
                                 <p class="card-text">${element.comment}</p>
                                 <a href="#exampleFormControlTextarea1" id="${element.author}" class="card-link">Відповісти</a>
@@ -87,7 +89,6 @@ const renderComments = () =>{
                     </div>
                 </div>
             `;
-            element.reply.forEach(element => { console.log(element)})
         })
         HTML += `
         <div class="row">

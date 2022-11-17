@@ -1,30 +1,39 @@
-/* validMW({
+const post = {
     type: 'object',
     properties: {
-        name: { 
+        author: { 
             type: 'string', 
             minLength: 3,
-            maxLength: 15,
+            maxLength: 25,
         },
-        surname: { 
+        title: { 
             type: 'string', 
-            minLength: 3,
-            maxLength: 15, 
+            minLength: 10,
+            maxLength: 80, 
         },
-        age: { 
+        content: { 
+            type: 'string', 
+            minLength: 5,
+            maxLength: 500, 
+        },
+        price: { 
             type: 'string', 
             minLength: 1,
-            maxLength: 3, 
+            maxLength: 9, 
         },
-        date: { 
+        keywordsinput: { 
             type: 'string', 
-            pattern: '[12][09][0-9][0-9]-[01][1-9]-[0-3][1-9]', 
-        },    
+            minLength: 1,
+        },
+        location: { 
+            type: 'string', 
+            minLength: 1,
+            maxLength: 50, 
+        },
     },
-    additionalProperties: false,
-    required: ['name', 'surname', 'age', 'date'],
-})
-*/
+    required: ['author', 'title', 'content', 'price', 'keywordsinput', 'location'],
+}
+
 const search = {
     type: 'object',
     properties: {
@@ -58,4 +67,4 @@ const comment = {
     required: ['author', 'comment'],
 }
 
-module.exports = {search, comment};
+module.exports = {search, comment, post};

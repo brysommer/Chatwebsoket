@@ -10,9 +10,9 @@ const mw = schema => (req, res, next) => {
         console.log('success');
         next();
         return;
-    };
+    } 
     res.statusCode = 400;
-    res.json({ status :'Wrong data' });
+    res.json({ status : validate.errors });
 };
 
 module.exports = mw;

@@ -26,7 +26,7 @@ router.post('/search', uploads.none(), validMW(schema.search),  async (req, res)
 })
 
 // posting add
-router.post('/postad', uploads.single('picture'), async (req, res) => {
+router.post('/postad', uploads.single('picture'), validMW(schema.post), async (req, res) => {
     let pictureName;
     if (req.file == undefined) {
         pictureName = 'logo.png';

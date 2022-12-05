@@ -1,0 +1,834 @@
+<!DOCTYPE html><html lang="uk" data-theme-enabled="1"><head><script>window.currentUser = null;</script><script>window.shopCurrency = "USD";</script><script>window.localCurrency = "UAH";</script><script>window.countryCode = "us";</script><script>window.rateShopTo = {"UAH":36.945295,"EUR":0.959457,"USD":1,"AMD":395.633122};</script><title itemprop="name">Об’єкти</title><link href="/pack/styles.faf54afd5fe9861c2708.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><!-- chrome autotranslate is enabled only for "en" main version--><meta name="google" content="notranslate"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="/img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="https://uk.javascript.info/object"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><link rel="icon" href="/img/favicon/favicon.png"><meta itemprop="image" content="https://uk.javascript.info/img/site_preview_en_512x512.png"><meta property="og:title" content="Об’єкти"><meta property="og:image" content="https://uk.javascript.info/img/site_preview_en_1200x630.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Об’єкти"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://uk.javascript.info/img/site_preview_en_512x512.png"><link rel="prev" href="/object-basics"><link rel="next" href="/object-copy"><script>window.GA_ID = "UA-2056213-15";</script><script>window.YANDEX_METRIKA_ID = 32184394;</script><script>window.GoogleAnalyticsObject="ga",window.ga=function(){window.ga.q.push(arguments)},window.ga.q=[],window.ga.l=Date.now(),ga("create",GA_ID,"auto"),window.GTM_ID&&ga("require",GTM_ID),window.currentUser?ga("set","&uid",currentUser.id):ga("set","anonymizeIp",!0),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),n=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+n,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}];</script><script src="//mc.yandex.ru/metrika/watch.js" async></script><script>window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";</script><script src="/pack/init.247b3532596f8b2aea93.js"></script><script src="/pack/head.cf21afb5c7e6edf5d34c.js" defer></script><meta property="og:title" content="Об’єкти"><meta property="og:type" content="article"><script src="/pack/tutorial.fbec96d6c30fe8f91638.js" defer></script><script src="/pack/footer.dac1316040c3504b4ef8.js" defer></script></head><body class="no-icons"><script>window.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if IE]><div style="color:red;text-align:center">На жаль, Internet Explorer не підтримується, будь ласка, використайте новіший браузер.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><script>window.langs = [{"code":"ar","name":"Arabic"},{"code":"az","name":"Azerbaijani"},{"code":"bg","name":"Bulgarian"},{"code":"bn","name":"Bengali"},{"code":"bs","name":"Bosnian"},{"code":"ca","name":"Catalan"},{"code":"cs","name":"Czech"},{"code":"da","name":"Danish"},{"code":"de","name":"German"},{"code":"el","name":"Greek"},{"code":"en","name":"English"},{"code":"es","name":"Spanish"},{"code":"fa","name":"Persian (Farsi)"},{"code":"fi","name":"Finnish"},{"code":"fr","name":"French"},{"code":"he","name":"Hebrew"},{"code":"hi","name":"Hindi"},{"code":"hr","name":"Croatian"},{"code":"hu","name":"Hungarian"},{"code":"hy","name":"Armenian"},{"code":"id","name":"Indonesian"},{"code":"it","name":"Italian"},{"code":"ja","name":"Japanese"},{"code":"ka","name":"Georgian"},{"code":"kk","name":"Kazakh"},{"code":"km","name":"Central Khmer"},{"code":"ko","name":"Korean"},{"code":"ky","name":"Kyrgyz"},{"code":"lt","name":"Lithuanian"},{"code":"me","name":"Montenegrin"},{"code":"ml","name":"Malayalam"},{"code":"ms","name":"Malay"},{"code":"my","name":"Burmese"},{"code":"nl","name":"Dutch"},{"code":"no","name":"Norvegian"},{"code":"pa","name":"Punjabi"},{"code":"pl","name":"Polish"},{"code":"pt","name":"Portuguese"},{"code":"ro","name":"Romanian"},{"code":"ru","name":"Russian"},{"code":"si","name":"Sinhala"},{"code":"sk","name":"Slovak"},{"code":"sl","name":"Slovenian"},{"code":"sq","name":"Albanian"},{"code":"sr","name":"Serbian"},{"code":"ta","name":"Tamil"},{"code":"te","name":"Telugu"},{"code":"test","name":"Test"},{"code":"th","name":"Thai"},{"code":"tk","name":"Turkmen"},{"code":"tr","name":"Turkish"},{"code":"uk","name":"Ukrainian"},{"code":"ur","name":"Urdu"},{"code":"uz","name":"Uzbek"},{"code":"v2","name":"v2"},{"code":"vi","name":"Vietnamese"},{"code":"zh-hant","name":"Chinese Traditional"},{"code":"zh","name":"Chinese"}];</script><script>window.lang = "uk";</script><script>{let t=navigator.languages||[];t=t.map(t=>t.toLowerCase());let o,i,n=[];for(let o of window.langs)for(let i of t)if(i===o.code||i.startsWith(o.code+"-")){n.push(o);break}if(!o&&"ru"!=lang&&"en"!=lang){n.find(t=>"en"==t.code)&&(o=`\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `,i="notify-translate-tutorial-local")}if(o){let t=`<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;document.write(t),showTopNotification()}}</script><div class="sitetoolbar__content"><div class="sitetoolbar__lang-switcher"><button class="sitetoolbar__dropdown-button" data-dropdown-toggler>UK</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><div class="sitetoolbar__lang-switcher-body"><div class="supported-langs supported-langs_toolbar"><div class="supported-langs__container"><ul class="supported-langs__list" style="height:200px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ar.javascript.info/object"><span class="supported-langs__brief">AR</span><span class="supported-langs__title">عربي</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://javascript.info/object"><span class="supported-langs__brief">EN</span><span class="supported-langs__title">English</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://es.javascript.info/object"><span class="supported-langs__brief">ES</span><span class="supported-langs__title">Español</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://fa.javascript.info/object"><span class="supported-langs__brief">FA</span><span class="supported-langs__title">فارسی</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://fr.javascript.info/object"><span class="supported-langs__brief">FR</span><span class="supported-langs__title">Français</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://id.javascript.info/object"><span class="supported-langs__brief">ID</span><span class="supported-langs__title">Indonesia</span></a></li></ul><ul class="supported-langs__list" style="height:200px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://it.javascript.info/object"><span class="supported-langs__brief">IT</span><span class="supported-langs__title">Italiano</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://ja.javascript.info/object"><span class="supported-langs__brief">JA</span><span class="supported-langs__title">日本語</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://ko.javascript.info/object"><span class="supported-langs__brief">KO</span><span class="supported-langs__title">한국어</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://learn.javascript.ru/object"><span class="supported-langs__brief">RU</span><span class="supported-langs__title">Русский</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://tr.javascript.info/object"><span class="supported-langs__brief">TR</span><span class="supported-langs__title">Türkçe</span></a></li><li class="supported-langs__item supported-langs__item_current"><a class="supported-langs__link" href="https://uk.javascript.info/object"><span class="supported-langs__brief">UK</span><span class="supported-langs__title">Українська</span></a></li></ul><ul class="supported-langs__list" style="height:20px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://zh.javascript.info/object"><span class="supported-langs__brief">ZH</span><span class="supported-langs__title">简体中文</span></a></li></ul></div><div class="supported-langs__text"><p>Ми хочемо зробити цей проєкт з відкритим кодом доступним для людей у всьому світі.</p> <p><a href="https://javascript.info/translate">Допоможіть перекласти</a> цей підручник вашою мовою!</p>
+</div></div></div></div></div></div><div class="sitetoolbar__logo-wrap"><a class="sitetoolbar__link sitetoolbar__link_logo" href="/"><img class="sitetoolbar__logo sitetoolbar__logo_normal" src="/img/sitetoolbar__logo_en.svg" width="200" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_normal sitetoolbar__logo_dark" src="/img/sitetoolbar__logo_en-white.svg" width="200" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small" src="/img/sitetoolbar__logo_small_en.svg" width="70" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small sitetoolbar__logo_dark" src="/img/sitetoolbar__logo_small_en-white.svg" width="70" alt="" role="presentation"/><script>Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){let t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)});</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button class="sitetoolbar__nav-toggle" type="button"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"></ul></nav><div class="sitetoolbar__book-wrap"><a class="buy-book-button" href="/ebook"><span class="buy-book-button__extra-text">Купити</span>EPUB/PDF</a></div><div class="sitetoolbar__theme-switcher"><div class="theme-changer"><label class="theme-changer__label" for="theme-changer-input" data-tooltip="Змінити тему"><input class="theme-changer__input" type="checkbox" id="theme-changer-input" data-theme-changer="data-theme-changer"/><span class="theme-changer__icon theme-changer__icon_light-theme"></span><span class="theme-changer__icon theme-changer__icon_dark-theme"></span></label></div></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><button class="sitetoolbar__search-toggle" type="button"></button><form class="sitetoolbar__search" method="GET" action="/search"><div class="sitetoolbar__search-input"><div class="text-input"><input class="text-input__control" name="query" placeholder="Пошук на Javascript.info" required="required" type="text"/></div><button class="sitetoolbar__find" type="submit">Пошук</button></div></form></div></div></div><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><form class="tablet-menu-search" action="/search/"><input class="tablet-menu-search__input" type="search" name="query" placeholder="Пошук у підручнику" required="required"/><button class="tablet-menu-search__button" type="submit" name="type" value="articles">Пошук</button></form></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Навчальна карта</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="theme-changer theme-changer_tablet-menu theme-changer_has-label"><label class="theme-changer__label" for="theme-changer-input-tablet" data-tooltip="Змінити тему"><input class="theme-changer__input" type="checkbox" id="theme-changer-input-tablet" data-theme-changer="data-theme-changer"/><span class="theme-changer__icon theme-changer__icon_light-theme"></span><span class="theme-changer__icon theme-changer__icon_dark-theme"></span><span class="theme-changer__label-text theme-changer__label-text_light-theme">Світла тема</span><span class="theme-changer__label-text theme-changer__label-text_dark-theme">Темна тема</span></label></div></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Поділитися</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fuk.javascript.info%2Fobject" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fuk.javascript.info%2Fobject" rel="nofollow"></a></div></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><select class="tablet-menu__nav input-select input-select input-select_small" onchange="if(this.value) window.location.href=this.value"><option value="https://ar.javascript.info/object">عربي</option><option value="https://javascript.info/object">English</option><option value="https://es.javascript.info/object">Español</option><option value="https://fa.javascript.info/object">فارسی</option><option value="https://fr.javascript.info/object">Français</option><option value="https://id.javascript.info/object">Indonesia</option><option value="https://it.javascript.info/object">Italiano</option><option value="https://ja.javascript.info/object">日本語</option><option value="https://ko.javascript.info/object">한국어</option><option value="https://learn.javascript.ru/object">Русский</option><option value="https://tr.javascript.info/object">Türkçe</option><option value="https://uk.javascript.info/object" selected>Українська</option><option value="https://zh.javascript.info/object">简体中文</option></select></div></div></div><progress class="tutorial-progress" data-sticky value="29" max="92" data-tooltip="Урок 29 з 92"></progress></div><div class="page page_sidebar_on page_inner_padding"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");let e=document.querySelector(".page-wrapper");e&&e.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")});</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><div class="main__header-inner"><div class="main__header-group"><ol class="breadcrumbs"><li class="breadcrumbs__item breadcrumbs__item_home"><a class="breadcrumbs__link" href="/"><span class="breadcrumbs__hidden-text">Підручник</span></a></li><li class="breadcrumbs__item" id="breadcrumb-1"><a class="breadcrumbs__link" href="/js"><span>Мова програмування JavaScript</span></a></li><li class="breadcrumbs__item" id="breadcrumb-2"><a class="breadcrumbs__link" href="/object-basics"><span>Об’єкти: основи</span></a></li><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Підручник","item":"https://uk.javascript.info/"},{"@type":"ListItem","position":2,"name":"Мова програмування JavaScript","item":"https://uk.javascript.info/js"},{"@type":"ListItem","position":3,"name":"Об’єкти: основи","item":"https://uk.javascript.info/object-basics"}]}</script></ol><div class="updated-at" data-tooltip="Останнє оновлення: 24 квітня 2022 р."><div class="updated-at__content">24 квітня 2022 р.</div></div></div><h1 class="main__header-title">Об’єкти</h1></div></header><div class="content"><article class="formatted" itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="Об’єкти"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>Як ми знаємо з глави <a href="/types">Типи даних</a>, у JavaScript є вісім типів даних. Сім з них називаються “примітивними”, оскільки їх значення містять лише одну річ (чи то рядок, число чи щось інше).</p>
+<p>На противагу цьому, об’єкти використовуються для зберігання ключів різних колекцій даних та складніших об’єктів. У JavaScript об’єкти проникають майже в усі аспекти мови. Тому ми повинні їх спочатку зрозуміти, перш ніж заглиблюватися в складніші теми.</p>
+<p>Об’єкт можна створити за допомогою фігурних дужок <code>{…}</code> з необов’язковим списком <em>властивостей</em>. Властивість – це пара “ключ: значення”, де <code>ключ</code> – це рядок (також називається “ім’я властивості”), а <code>значення</code> може бути будь-яким.</p>
+<p>Ми можемо уявити собі об’єкт як шафу з підписаними файлами. Кожен фрагмент даних зберігається у своєму файлі за допомогою ключа. Легко знайти файл за назвою або додати/видалити файл.</p>
+<figure><div class="image" style="width:176px">
+      <div class="image__ratio" style="padding-top:103.97727272727273%"></div>
+      <object type="image/svg+xml" data="/article/object/object.svg" width="176" height="183" class="image__image" data-use-theme>
+        <img src="/article/object/object.svg" alt="" width="176" height="183">
+      </object>
+      </div></figure><p>Порожній об’єкт (“порожню шафу”) можна створити за допомогою одного з двох синтаксисів:</p>
+<div id="xzewm3uvkm" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = new Object(); // синтаксис &quot;конструктора об’єктів&quot;
+let user = {};  // синтаксис &quot;літералу об’єкта&quot;</code></pre>
+        </div>
+      </div>
+      
+      </div><figure><div class="image" style="width:248px">
+      <div class="image__ratio" style="padding-top:37.096774193548384%"></div>
+      <object type="image/svg+xml" data="/article/object/object-user-empty.svg" width="248" height="92" class="image__image" data-use-theme>
+        <img src="/article/object/object-user-empty.svg" alt="" width="248" height="92">
+      </object>
+      </div></figure><p>Зазвичай використовуються фігурні дужки <code>{...}</code>. Таке оголошення називається <em>літералом об’єкта</em>.</p>
+<h2><a class="main__anchor" name="literali-ta-vlastivosti" href="#literali-ta-vlastivosti">Літерали та властивості</a></h2><p>Ми можемо одразу помістити деякі властивості у <code>{...}</code> як пари “ключ: значення”:</p>
+<div id="rcr4b4ffu3" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {     // об’єкт
+  name: &quot;Іван&quot;,  // за ключем &quot;name&quot; зберігаємо значення &quot;Іван&quot;
+  age: 30        // за ключем &quot;age&quot; зберігати значення &quot;30&quot;
+};</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Властивість має ключ (також відомий як “ім’я” або “ідентифікатор”) перед двокрапкою <code>&quot;:&quot;</code> і значення праворуч від нього.</p>
+<p>В об’єкті <code>user</code> зараз знаходяться дві властивості:</p>
+<ol>
+<li>Перша властивість з ім’ям <code>&quot;name&quot;</code> і значенням <code>&quot;Іван&quot;</code>.</li>
+<li>Друга властивість з ім’ям <code>&quot;age&quot;</code> і значенням <code>30</code>.</li>
+</ol>
+<p>Отриманий об’єкт <code>user</code> можна уявити собі як шафу з двома підписаними файлами з позначками “name” та “age”.</p>
+<figure><div class="image" style="width:248px">
+      <div class="image__ratio" style="padding-top:69.75806451612904%"></div>
+      <object type="image/svg+xml" data="/article/object/object-user.svg" width="248" height="173" class="image__image" data-use-theme>
+        <img src="/article/object/object-user.svg" alt="" width="248" height="173">
+      </object>
+      </div></figure><p>Ми можемо в будь-який момент додати в нього нові файли, видалити файли або прочитати вміст будь-якого файлу.</p>
+<p>Для звернення до властивостей використовується запис через крапку:</p>
+<div id="m90t0g2aug" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>// отримаємо значення властивостей об’єкта:
+alert( user.name ); // Іван
+alert( user.age ); // 30</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Значення може бути будь-якого типу. Додамо булеве значення:</p>
+<div id="dvkqhqt4p5" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>user.isAdmin = true;</code></pre>
+        </div>
+      </div>
+      
+      </div><figure><div class="image" style="width:248px">
+      <div class="image__ratio" style="padding-top:69.75806451612904%"></div>
+      <object type="image/svg+xml" data="/article/object/object-user-isadmin.svg" width="248" height="173" class="image__image" data-use-theme>
+        <img src="/article/object/object-user-isadmin.svg" alt="" width="248" height="173">
+      </object>
+      </div></figure><p>Щоб видалити властивість ми можемо використати оператор <code>delete</code>:</p>
+<div id="pwukmjaidi" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>delete user.age;</code></pre>
+        </div>
+      </div>
+      
+      </div><figure><div class="image" style="width:248px">
+      <div class="image__ratio" style="padding-top:69.75806451612904%"></div>
+      <object type="image/svg+xml" data="/article/object/object-user-delete.svg" width="248" height="173" class="image__image" data-use-theme>
+        <img src="/article/object/object-user-delete.svg" alt="" width="248" height="173">
+      </object>
+      </div></figure><p>Ім’я властивості може складатися з декількох слів, але тоді воно має бути поміщено в лапки:</p>
+<div id="hr6ammspqp" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {
+  name: &quot;Іван&quot;,
+  age: 30,
+  &quot;likes birds&quot;: true  // Ім’я властивості з декількох слів повинно бути в лапках
+};</code></pre>
+        </div>
+      </div>
+      
+      </div><figure><div class="image" style="width:248px">
+      <div class="image__ratio" style="padding-top:86.69354838709677%"></div>
+      <object type="image/svg+xml" data="/article/object/object-user-props.svg" width="248" height="215" class="image__image" data-use-theme>
+        <img src="/article/object/object-user-props.svg" alt="" width="248" height="215">
+      </object>
+      </div></figure><p>Остання властивість у списку може закінчуватися комою:</p>
+<div id="524y7qz4xc" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:2,&quot;cols&quot;:[{&quot;start&quot;:9,&quot;end&quot;:10}]}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {
+  name: &quot;Іван&quot;,
+  age: 30,
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Це називається “кінцевою” або “висячою” комою. Полегшує додавання/видалення/переміщення по властивостях, оскільки всі рядки стають однаковими.</p>
+<h2><a class="main__anchor" name="kvadratni-duzhki" href="#kvadratni-duzhki">Квадратні дужки</a></h2><p>Для властивостей, імена яких складаються з декількох слів, доступ до значення «через крапку» не працює:</p>
+<div id="irrpym8kw6" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>// це викличе синтаксичну помилку
+user.likes birds = true</code></pre>
+        </div>
+      </div>
+      
+      </div><p>JavaScript бачить, що ми звертаємося до властивості <code>user.likes</code>, а потім йде незрозуміле слово <code>birds</code>. В результаті отримаємо синтаксичну помилку.</p>
+<p>Крапка вимагає, щоб ключ був правильним ідентифікатором змінної. Це означає: не містить пробілів, не починається з цифри та не містить спеціальних символів (<code>$</code> та <code>_</code> дозволені).</p>
+<p>Для таких випадків існує альтернативний спосіб доступу до властивостей через квадратні дужки. Такий спосіб спрацює з будь-яким ім’ям властивості:</p>
+<div id="1dn6pb6kd3" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {};
+
+// присвоювання значення властивості
+user[&quot;любить птахів&quot;] = true;
+
+// отримання значення властивості
+alert(user[&quot;любить птахів&quot;]); // true
+
+// видалення властивості
+delete user[&quot;любить птахів&quot;];</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Зараз усе гаразд. Зверніть увагу, що рядок у квадратних дужках міститься в лапках (підійде будь-який тип лапок).</p>
+<p>Квадратні дужки також дозволяють звернутися до властивості, ім’я якої може бути результатом виразу. Наприклад, ім’я властивості може зберігатися в змінній:</p>
+<div id="uhrcaim7zc" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let key = &quot;любить птахів&quot;;
+
+// так само, як user[&quot;любить птахів&quot;] = true;
+user[key] = true;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Тут змінна <code>key</code> може бути обчислена під час виконання або залежатиме від вводу користувача. І тоді ми використовуємо його для доступу до властивості. Це дає нам велику гнучкість.</p>
+<p>Приклад:</p>
+<div id="jmr7k0a8xl" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {
+  name: &quot;Іван&quot;,
+  age: 30
+};
+
+let key = prompt(&quot;Що ви хочете знати про користувача?&quot;, &quot;name&quot;);
+
+// доступ до властивості через змінну
+alert( user[key] ); // Іван (якщо ввести &quot;name&quot;)</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Запис «через крапку» такого не дозволяє:</p>
+<div id="rraq0p36x1" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {
+  name: &quot;Іван&quot;,
+  age: 30
+};
+
+let key = &quot;name&quot;;
+alert( user.key ) // undefined</code></pre>
+        </div>
+      </div>
+      
+      </div><h3><a class="main__anchor" name="obchislyuvani-vlastivosti" href="#obchislyuvani-vlastivosti">Обчислювані властивості</a></h3><p>Ми можемо використовувати квадратні дужки в літеральній нотації для створення обчислюваної властивості.</p>
+<p>Наприклад:</p>
+<div id="5fwmn5tg2d" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:3,&quot;end&quot;:3}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let fruit = prompt(&quot;Які фрукти купити?&quot;, &quot;apple&quot;);
+
+let bag = {
+  [fruit]: 5, // назву властивості взято зі змінної fruit
+};
+
+alert( bag.apple ); // 5 якщо fruit=&quot;apple&quot;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Значення обчислюваної властивості просте: <code>[fruit]</code> означає, що назву властивості слід брати з <code>fruit</code>.</p>
+<p>І якщо відвідувач введе слово <code>&quot;apple&quot;</code>, то в об’єкті <code>bag</code> тепер буде лежати властивість <code>{apple: 5}</code>.</p>
+<p>По суті, це працює так само, як:</p>
+<div id="d00mv49aul" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let fruit = prompt(&quot;Які фрукти купити?&quot;, &quot;apple&quot;);
+let bag = {};
+
+// назву властивості взято зі змінної fruit
+bag[fruit] = 5;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>… Але виглядає приємніше.</p>
+<p>Ми можемо використати більш складні вирази в квадратних дужках:</p>
+<div id="1nynxrgcyv" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let fruit = 'apple';
+let bag = {
+  [fruit + 'Computers']: 5 // bag.appleComputers = 5
+};</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Квадратні дужки набагато потужніші за крапкову нотацію. Вони допускають будь-які назви властивостей та змінні. Але вони також більш громіздкі для написання.</p>
+<p>Тому більшість часу, коли назви властивостей відомі та прості, використовується крапка. А якщо нам потрібно щось складніше, то переходимо до квадратних дужок.</p>
+<h2><a class="main__anchor" name="vlastivist-z-zminnoyi" href="#vlastivist-z-zminnoyi">Властивість з змінної</a></h2><p>У реальному коді ми часто використовуємо наявні змінні як значення для імен властивостей.</p>
+<p>Приклад:</p>
+<div id="o5o70rxwgc" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>function makeUser(name, age) {
+  return {
+    name: name,
+    age: age,
+    // ...інші властивості
+  };
+}
+
+let user = makeUser(&quot;Іван&quot;, 30);
+alert(user.name); // Іван</code></pre>
+        </div>
+      </div>
+      
+      </div><p>В наведеному вище прикладі назва властивостей <code>name</code> і <code>age</code> збігаються з назвами змінних, які ми підставляємо в якості значень цих властивостей. Такий підхід настільки поширений, що існують спеціальні <em>короткі властивості</em> для спрощення цього запису.</p>
+<p>Замість <code>name: name</code> ми можемо написати просто <code>name</code>:</p>
+<div id="7pz1ftjl2z" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:1,&quot;end&quot;:5}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>function makeUser(name, age) {
+  return {
+    name, // те ж саме, що name: name
+    age,  // те ж саме, що age: age
+    // ...
+  };
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Ми можемо використовувати як звичайні властивості, так і скорочення в одному об’єкті:</p>
+<div id="2nz6szr60t" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {
+  name,  // те ж саме, що name:name
+  age: 30
+};</code></pre>
+        </div>
+      </div>
+      
+      </div><h2><a class="main__anchor" name="obmezhennya-dlya-imen-vlastivostei" href="#obmezhennya-dlya-imen-vlastivostei">Обмеження для імен властивостей</a></h2><p>Як ми вже знаємо, змінна не може мати ім’я, зі списку слів, зарезервованих мовою, як-от “for”, “let”, “return” тощо.</p>
+<p>То для властивості об’єкта немає такого обмеження:</p>
+<div id="nm4y7dqw3u" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>// ці назви властивостей -- правильні
+let obj = {
+  for: 1,
+  let: 2,
+  return: 3
+};
+
+alert( obj.for + obj.let + obj.return );  // 6</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Коротко кажучи, немає ніяких обмежень щодо назв властивостей. Це можуть бути будь-які рядки або символи (спеціальний тип для ідентифікаторів, про які буде сказано пізніше).</p>
+<p>Інші типи автоматично перетворюються на рядки.</p>
+<p>Наприклад, число <code>0</code> стає рядком <code>&quot;0&quot;</code>, коли використовується як ключ властивості:</p>
+<div id="okc17zirru" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let obj = {
+  0: &quot;тест&quot; // те ж саме, що &quot;0&quot;: &quot;тест&quot;
+};
+
+// обидва попередження мають доступ до однієї властивості (число 0 перетворюється на рядок &quot;0&quot;)
+alert( obj[&quot;0&quot;] ); // тест
+alert( obj[0] ); // тест (таж сама властивість)</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Є невеликий підводний камінь, пов’язаний зі спеціальною властивістю <code>__proto__</code>. Ми можемо встановити в нього значення об’єктного типу:</p>
+<div id="b3tz3p6eri" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let obj = {};
+obj.__proto__ = 5; // присвоїмо число
+alert(obj.__proto__); // [object Object] - значення -- це об’єкт, тобто не те, що ми очікували</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Як ми бачимо з коду, присвоєння числа <code>5</code> ігнорується.</p>
+<p>Ми розглянемо особливий характер <code>__proto__</code> у <a href="/prototype-inheritance">наступних розділах</a> і запропонуємо <a href="/prototype-methods">способи виправлення</a> такої поведінки.</p>
+<h2><a class="main__anchor" name="perevirka-isnuvannya-vlastivosti-operator-in" href="#perevirka-isnuvannya-vlastivosti-operator-in">Перевірка існування властивості, оператор “in”</a></h2><p>Помітною особливістю об’єктів у JavaScript, у порівнянні з багатьма іншими мовами, є можливість доступу до будь-якої властивості. Помилки не буде, якщо властивості не існує!</p>
+<p>Читання відсутньої властивості просто повертає <code>undefined</code>. Тому ми можемо легко перевірити, чи існує властивість:</p>
+<div id="bs81n17pqg" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {};
+
+alert( user.noSuchProperty === undefined ); // true означає &quot;такої властивості немає&quot;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Для цього також є спеціальний оператор <code>&quot;in&quot;</code>.</p>
+<p>Синтаксис такий:</p>
+<div id="dwqpncqpme" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>&quot;key&quot; in object</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Наприклад:</p>
+<div id="kenrecletv" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = { name: &quot;Іван&quot;, age: 30 };
+
+alert( &quot;age&quot; in user ); // true, user.age існує
+alert( &quot;blabla&quot; in user ); // false, user.blabla не існує</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Зверніть увагу, що зліва від оператора <code>in</code> повинно бути ім’я властивості. Зазвичай це рядок в лапках.</p>
+<p>Якщо ми опускаємо лапки, це означає, що ми вказуємо змінну, в якій знаходиться ім’я властивості. Наприклад:</p>
+<div id="b9hs909a58" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:3,&quot;cols&quot;:[{&quot;start&quot;:7,&quot;end&quot;:10}]}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = { age: 30 };
+
+let key = &quot;age&quot;;
+alert( key in user ); // true, властивість &quot;age&quot; існує</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Для чого взагалі потрібен оператор <code>in</code>? Хіба недостатньо порівняння з <code>undefined</code>?</p>
+<p>У більшості випадків прекрасно спрацює порівняння з <code>undefined</code>. Але є особливий випадок, коли воно не підходить, і потрібно використовувати <code>&quot;in&quot;</code>.</p>
+<p>Це коли властивість існує, але містить значення <code>undefined</code>:</p>
+<div id="lh1i8wixqg" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let obj = {
+  test: undefined
+};
+
+alert( obj.test ); // виведеться undefined, значить властивість не існує?
+
+alert( &quot;test&quot; in obj ); // true, властивість існує!</code></pre>
+        </div>
+      </div>
+      
+      </div><p>У наведеному вище коді властивість <code>obj.test</code> технічно існує. Отже, оператор <code>in</code> працює правильно.</p>
+<p>Такі ситуації трапляються дуже рідко, тому що <code>undefined</code> не слід чітко призначати. Ми в основному використовуємо <code>null</code> для “невідомих” або “порожніх” значень. Отже, оператор <code>in</code> – екзотичний гість у коді.</p>
+<h2><a class="main__anchor" name="cikl-for-in" href="#cikl-for-in">Цикл “for…in”</a></h2><p>Для перебору всіх властивостей об’єкта використовується цикл <code>for..in</code>. Цей цикл відрізняється від вивченого раніше циклу <code>for(;;)</code>.</p>
+<p>Синтаксис:</p>
+<div id="saveikueag" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>for (key in object) {
+  // тіло циклу виконується для кожної властивості об’єкта
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Наприклад, виведемо всі властивості <code>user</code>:</p>
+<div id="73q6ojfo3k" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {
+  name: &quot;Іван&quot;,
+  age: 30,
+  isAdmin: true
+};
+
+for (let key in user) {
+  // ключі
+  alert( key );  // name, age, isAdmin
+  // значення ключів
+  alert( user[key] ); // Іван, 30, true
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Зверніть увагу, що всі конструкції “for” дозволяють нам оголошувати змінну всередині циклу, як, наприклад, <code>let key</code> тут.</p>
+<p>Крім того, ми могли б використовувати інше ім’я змінної. Наприклад, часто використовується варіант <code>&quot;for (let prop in obj)&quot;</code>.</p>
+<h3><a class="main__anchor" name="vporyadkuvannya-vlastivostei-obyekta" href="#vporyadkuvannya-vlastivostei-obyekta">Впорядкування властивостей об’єкта</a></h3><p>Чи упорядковані властивості об’єкта? Іншими словами, якщо ми будемо в циклі перебирати всі властивості об’єкта, чи отримаємо ми їх в тому ж порядку, в якому ми їх додавали? Чи можемо ми на це розраховувати?</p>
+<p>Коротка відповідь: “властивості впорядковані особливим чином”. Властивості з цілочисельними ключами сортуються за зростанням, інші розташовуються в порядку створення. Розберемося докладніше.</p>
+<p>Як приклад розглянемо об’єкт з телефонними кодами:</p>
+<div id="bapmfpac7y" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:8,&quot;end&quot;:10}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let codes ={
+   &quot;49&quot;: &quot;Німеччина&quot;,
+   &quot;41&quot;: &quot;Швейцарія&quot;,
+   &quot;44&quot;: &quot;Великобританія&quot;,
+   // ..,
+   &quot;1&quot;: &quot;США&quot;
+};
+
+for (let code in codes) {
+  alert(code); // 1, 41, 44, 49
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Об’єкт може використовуватися, щоб запропонувати користувачеві список опцій. Якщо ми робимо сайт для німецької аудиторії, то, ймовірно, ми хочемо, щоб код <code>49</code> був першим.</p>
+<p>Але якщо ми запустимо код, ми побачимо зовсім іншу картину:</p>
+<ul>
+<li>США (1) йде першим</li>
+<li>потім Швейцарія (41) і так далі.</li>
+</ul>
+<p>Телефонні коди йдуть в порядку зростання, тому що вони є цілими числами: <code>1, 41, 44, 49</code>.</p>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type">Цілочисельні властивості? Що це?</span></div>
+            <div class="important__content"><p>Термін “цілочисельна властивість” означає рядок, який може бути перетворений в ціле число і назад без змін.</p>
+<p>Тобто, рядок <code>&quot;49&quot;</code> – це цілочисельне ім’я властивості, якщо його перетворити на ціле число, а потім назад в рядок, то воно не зміниться. А ось властивості <code>&quot;+49&quot;</code> або <code>&quot;1.2&quot;</code> такими не є:</p>
+<div id="eqe3p2pkk6" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>// Number(...) -- явно перетворює на число
+// Math.trunc -- вбудована функція, яка видаляє десяткову частину
+alert( String( Math.trunc( Number(&quot;49&quot;))) ); // &quot;49&quot;, те ж саме ⇒ властивість цілочисельна
+alert( String( Math.trunc( Number(&quot;+49&quot;))) ); // &quot;49&quot;, не те ж саме, що &quot;+49&quot; ⇒ властивість не цілочисельна
+alert( String( Math.trunc( Number(&quot;1.2&quot;)))); // &quot;1&quot;, не те ж саме, що &quot;1.2&quot; ⇒ властивість не цілочисельна</code></pre>
+        </div>
+      </div>
+      
+      </div></div></div>
+<p>…З іншого боку, якщо ключ не цілочисельний, то вони перебираються в порядку створення, наприклад:</p>
+<div id="6x9o654tqw" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:6,&quot;end&quot;:6}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {
+  name: &quot;Іван&quot;,
+  surname: &quot;Smith&quot;
+};
+user.age = 25; // добавимо ще одну властивість
+
+// не цілочисельні властивості перераховані в порядку створення
+for (let prop in user) {
+  alert( prop ); // name, surname, age
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Таким чином, щоб вирішити нашу проблему з телефонними кодами, ми можемо схитрувати, зробивши коди не цілочисельними властивостями. Додамо знак <code>&quot;+&quot;</code> перед кожним кодом.</p>
+<p>Приклад:</p>
+<div id="ugiwbm8qps" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let codes = {
+  &quot;+49&quot;: &quot;Germany&quot;,
+  &quot;+41&quot;: &quot;Switzerland&quot;,
+  &quot;+44&quot;: &quot;Great Britain&quot;,
+  // ..,
+  &quot;+1&quot;: &quot;USA&quot;
+};
+
+for (let code in codes) {
+  alert( +code ); // 49, 41, 44, 1
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Зараз скрипт працює, як передбачалося.</p>
+<h2><a class="main__anchor" name="visnovok" href="#visnovok">Висновок</a></h2><p>Об’єкти – це асоціативні масиви з рядом додаткових можливостей.</p>
+<p>Вони зберігають властивості (пари ключ-значення), де:</p>
+<ul>
+<li>Ключі властивостей повинні бути рядками або символами (зазвичай рядками).</li>
+<li>Значення можуть бути будь-якого типу.</li>
+</ul>
+<p>Щоб отримати доступ до властивості, ми можемо використовувати:</p>
+<ul>
+<li>Запис через крапку: <code>obj.property</code>.</li>
+<li>Квадратні дужки <code>obj[&quot;property&quot;]</code>. Квадратні дужки дозволяють взяти ключ зі змінної, наприклад, <code>obj[varWithKey]</code>.</li>
+</ul>
+<p>Додаткові оператори:</p>
+<ul>
+<li>Видалення властивості: <code>delete obj.prop</code>.</li>
+<li>Перевірка існування властивості: <code>&quot;key&quot; in obj</code>.</li>
+<li>Перебір властивостей об’єкта: цикл <code>for for (let key in obj)</code>.</li>
+</ul>
+<p>Те, що ми вивчали в цьому розділі, називається “простим об’єктом” або просто <code>Object</code>.</p>
+<p>В JavaScript є багато інших типів об’єктів:</p>
+<ul>
+<li><code>Array</code> для зберігання впорядкованих колекцій даних,</li>
+<li><code>Date</code> для зберігання інформації про дату і час,</li>
+<li><code>Error</code> для зберігання інформації про помилку.</li>
+<li>… і так далі.</li>
+</ul>
+<p>У них є свої особливості, які ми вивчимо пізніше. Іноді люди говорять щось на кшталт “тип даних Array” або “тип даних Date”, але формально вони не є окремими типами, а належать до типу даних <code>&quot;Object&quot;</code>. Вони лише розширюють його різними способами.</p>
+<p>Об’єкти в JavaScript дуже потужні. Тут ми тільки трохи заглибилися в дійсно величезну тему. Ми будемо тісно працювати з об’єктами і дізнаємося про них більше в наступних частинах підручника.</p>
+</div></article><div class="tasks formatted"><h2 class="tasks__title" id="tasks"><a class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon" href="#tasks">Завдання</a></h2><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#privit-object" name="privit-object">Привіт, object</a></h3><a class="task__open-link" href="/task/hello-object" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="Наскільки важливим є завдання, від 1 до 5">важливість: 5</span></div><div class="task__content"><div class="task__formatted"><p>Напишіть код, виконавши завдання з кожного пункту окремим рядком:</p>
+<ol>
+<li>Створіть порожній об’єкт <code>user</code>.</li>
+<li>Додайте властивість <code>name</code> зі значенням <code>Іван</code>.</li>
+<li>Додайте властивість <code>surname</code> зі значенням <code>Сміт</code>.</li>
+<li>Змініть значення <code>name</code> на <code>Петро</code>.</li>
+<li>Видаліть властивість <code>name</code> з об’єкта.</li>
+</ol>
+</div><button class="task__solution" type="button">рішення</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><div id="npig95t5wq" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let user = {};
+user.name = &quot;Іван&quot;;
+user.surname = &quot;Сміт&quot;;
+user.name = &quot;Петро&quot;;
+delete user.name;</code></pre>
+        </div>
+      </div>
+      
+      </div></div></div><button class="close-button task__answer-close" type="button" title="закрити"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#perevirka-na-porozhnechu" name="perevirka-na-porozhnechu">Перевірка на порожнечу</a></h3><a class="task__open-link" href="/task/is-empty" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="Наскільки важливим є завдання, від 1 до 5">важливість: 5</span></div><div class="task__content"><div class="task__formatted"><p>Напишіть функцію <code>isEmpty(obj)</code>, яка повертає <code>true</code>, якщо об’єкт не має властивості, інакше <code>false</code>.</p>
+<p>Має так працювати:</p>
+<div id="u45sa0oc7p" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let schedule = {};
+
+alert( isEmpty(schedule) ); // true
+
+schedule[&quot;8:30&quot;] = &quot;Вставай&quot;;
+
+alert( isEmpty(schedule) ); // false</code></pre>
+        </div>
+      </div>
+      
+      </div><p><a href="https://plnkr.co/edit/E5sWXiFFJRCZcptr?p=preview" target="_blank" data-plunk-id="E5sWXiFFJRCZcptr">Відкрити пісочницю з тестами.</a></p></div><button class="task__solution" type="button">рішення</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><p>Просто в циклі перебираємо властивості об’єкта і повертаємо <code>false</code>, як тільки зустрічаємо властивість.</p>
+<div id="uoo8v032al" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>function isEmpty(obj) {
+  for (let key in obj) {
+    // якщо цикл розпочався, властивість є
+    return false;
+  }
+  return true;
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p><a href="https://plnkr.co/edit/SlB81fQdYZV2BL3z?p=preview" target="_blank" data-plunk-id="SlB81fQdYZV2BL3z">Відкрити рішення із тестами в пісочниці.</a></p></div></div><button class="close-button task__answer-close" type="button" title="закрити"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#suma-vlastivostei-obyekta" name="suma-vlastivostei-obyekta">Сума властивостей об’єкта</a></h3><a class="task__open-link" href="/task/sum-object" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="Наскільки важливим є завдання, від 1 до 5">важливість: 5</span></div><div class="task__content"><div class="task__formatted"><p>У нас є об’єкт для зберігання заробітної плати нашої команди:</p>
+<div id="kgkxsznlmw" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Напишіть код для підсумовування всіх зарплат і збережіть у змінній <code>sum</code>. У наведеному вище прикладі має бути <code>390</code>.</p>
+<p>Якщо об’єкт <code>salaries</code> порожній, то результат має бути <code>0</code>.</p>
+</div><button class="task__solution" type="button">рішення</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><div id="mo1r83fj6v" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="запустити" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="відкрити в пісочниці" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+};
+
+let sum = 0;
+for (let key in salaries) {
+  sum += salaries[key];
+}
+
+alert(sum); // 390</code></pre>
+        </div>
+      </div>
+      
+      </div></div></div><button class="close-button task__answer-close" type="button" title="закрити"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#pomnozhte-chislovi-znachennya-vlastivostei-na-2" name="pomnozhte-chislovi-znachennya-vlastivostei-na-2">Помножте числові значення властивостей на 2</a></h3><a class="task__open-link" href="/task/multiply-numeric" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="Наскільки важливим є завдання, від 1 до 5">важливість: 3</span></div><div class="task__content"><div class="task__formatted"><p>Створіть функцію <code>multiplyNumeric(obj)</code>, яка примножує всі числові властивості об’єкта <code>obj</code> на <code>2</code>.</p>
+<p>Наприклад:</p>
+<div id="18ck2iuvb5" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>// до виклику функції
+let menu = {
+  width: 200,
+  height: 300,
+  title: &quot;Моє меню&quot;
+};
+
+multiplyNumeric(menu);
+
+// після виклику функції
+menu = {
+  width: 400,
+  height: 600,
+  title: &quot;Моє меню&quot;
+};</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Зверніть увагу, що <code>multiplyNumeric</code> не потрібно нічого повертати. Слід безпосередньо змінювати об’єкт.</p>
+<p>P.S. Використовуйте <code>typeof</code> для перевірки, що значення властивості числове.</p>
+<p><a href="https://plnkr.co/edit/4gLtVKGNcf4xmHcY?p=preview" target="_blank" data-plunk-id="4gLtVKGNcf4xmHcY">Відкрити пісочницю з тестами.</a></p></div><button class="task__solution" type="button">рішення</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><div id="krtir6uta4" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>function multiplyNumeric(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] == 'number') {
+      obj[key] *= 2;
+    }
+  }
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p><a href="https://plnkr.co/edit/PHskNYQD15jLALgN?p=preview" target="_blank" data-plunk-id="PHskNYQD15jLALgN">Відкрити рішення із тестами в пісочниці.</a></p></div></div><button class="close-button task__answer-close" type="button" title="закрити"></button></div></div></div></div></div></div><div class="page__nav-wrap"><a class="page__nav page__nav_prev" href="/object-basics" data-tooltip="Об’єкти: основи"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Попередній урок</span></a><a class="page__nav page__nav_next" href="/object-copy" data-tooltip="Копіювання об’єктів та посилання"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Наступний урок</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Поділитися</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fuk.javascript.info%2Fobject" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fuk.javascript.info%2Fobject" rel="nofollow"></a></div><div class="article-tablet-foot__map"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Навчальна карта</span></a></div></div></div><div class="comments formatted" id="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="#comments" name="comments">Коментарі</a></h2><div class="comments__read-before"><span class="comments__read-before-link">прочитайте це, перш ніж коментувати…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>Якщо у вас є пропозиції, щодо покращення підручника, будь ласка, <a href="https://github.com/javascript-tutorial/uk.javascript.info/issues/new">створіть обговорення на GitHub</a> або одразу створіть запит на злиття зі змінами.</li><li>Якщо ви не можете зрозуміти щось у статті, спробуйте покращити її, будь ласка.</li><li>Щоб вставити код, використовуйте тег <code>&lt;code&gt;</code>, для кількох рядків – обгорніть їх тегом <code>&lt;pre&gt;</code>, для понад 10 рядків – використовуйте пісочницю (<a href='https://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='https://jsbin.com'>jsbin</a>, <a href='http://codepen.io'>codepen</a>…)</li></ul></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/uk.javascript.info\/object","identifier":"\/object"}); };</script><script>var disqus_shortname = "uk-javascript-info";</script><script>var disqus_enabled = true;</script></div></main></div><div class="sidebar page__sidebar sidebar sidebar_sticky-footer"><button class="sidebar__toggle" data-sidebar-toggle></button><a class="map" href="/tutorial/map" data-action="tutorial-map" data-tooltip="Навчальна карта"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Глава</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="/object-basics">Об’єкти: основи</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Навігація по уроку</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#literali-ta-vlastivosti">Літерали та властивості</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#kvadratni-duzhki">Квадратні дужки</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#vlastivist-z-zminnoyi">Властивість з змінної</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#obmezhennya-dlya-imen-vlastivostei">Обмеження для імен властивостей</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#perevirka-isnuvannya-vlastivosti-operator-in">Перевірка існування властивості, оператор “in”</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#cikl-for-in">Цикл “for…in”</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#visnovok">Висновок</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#tasks">Завдання (4)</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#comments">Коментарі</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Поділитися</div><a class="share share_tw sidebar__share" href="https://twitter.com/share?url=https%3A%2F%2Fuk.javascript.info%2Fobject" rel="nofollow"></a><a class="share share_fb sidebar__share" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fuk.javascript.info%2Fobject" rel="nofollow"></a></div><div class="sidebar__section"><a class="sidebar__link" href="https://github.com/javascript-tutorial/uk.javascript.info/blob/master/1-js/04-object-basics/01-object" rel="nofollow">Редагувати на GitHub</a></div></div></div></div></div></div><div class="page-footer"><ul class="page-footer__list"><li class="page-footer__item page-footer__item_copy">©&nbsp;2007—2022&nbsp; Ілля Кантор</li><li class="page-footer__item page-footer__item_about"><a class="page-footer__link" href="/about">про проєкт</a></li><li class="page-footer__item page-footer__item_contact"><a class="page-footer__link" href="/about#contact-us">зв’яжіться з нами</a></li></ul></div></body></html>

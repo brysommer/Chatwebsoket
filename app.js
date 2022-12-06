@@ -9,8 +9,8 @@ const postRoutes = require('./routes/postroutes');
 const httpServer = createServer(server);
 const io = new Server(httpServer, { /* options */ });
 let chat = []
-io.on("connection", (socket) => { 
-  
+io.on('connection', (socket) => { 
+  io.sockets.emit('chatreload', chat);
   console.log('wsserver ON', socket.id);
   socket.on('chat', (data, cb) => {
     console.log('DATA:', data);

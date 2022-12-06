@@ -25,7 +25,7 @@ let userID;
 
 button.addEventListener('click', (event) => {
     const dataMessage = message.value;
-    socket.emit('chat', { message: dataMessage, time: time() } , (data) => {
+    socket.emit('chat', { message: dataMessage, time: time() } ,  (data) => {
         console.log('receive: ', data);
         userID = data;
     });

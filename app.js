@@ -12,8 +12,8 @@ let chat = []
 io.on("connection", (socket) => { 
   
   console.log('wsserver ON', socket.id);
-  socket.on('chat', (data) => {
-    console.log('DAATAS:', data);
+  socket.on('chat', (data, cb) => {
+    console.log('DATA:', data);
     let massage = {
       id: socket.id,
       massage: data.message,
@@ -21,6 +21,7 @@ io.on("connection", (socket) => {
       }
     chat.push(massage)
     console.log(chat)
+    cb(massage.id);
     io.sockets.emit('chatreload', chat);
   })
 });

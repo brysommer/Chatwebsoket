@@ -21,12 +21,13 @@ console.log(chatLog)
 
 console.log(io);
 const socket = io();
-
+let userID;
 
 button.addEventListener('click', (event) => {
     const dataMessage = message.value;
     socket.emit('chat', { message: dataMessage, time: time() } , (data) => {
         console.log('receive: ', data);
+        userID = data;
     });
     
 })
@@ -40,6 +41,9 @@ const createKeysData = (data) => {
     let HTML = '';
     data.forEach(element => {
         let divClass = 'chat-log__item';
+        if (element.id == userID) {
+            divClass = 'chat-log__item chat-log__item--own'
+        }
             HTML += `<div class="${divClass}">
                     <h3 class="chat-log__author">Felipe <small>${element.time}</small></h3>
                     <div class="chat-log__message">${element.massage}</div>

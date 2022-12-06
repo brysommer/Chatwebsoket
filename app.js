@@ -9,18 +9,19 @@ const postRoutes = require('./routes/postroutes');
 const httpServer = createServer(server);
 const io = new Server(httpServer, { /* options */ });
 let chat = []
-io.on("connection", (socket) => {
-    
-    
+io.on("connection", (socket) => { 
+  
   console.log('wsserver ON', socket.id);
   socket.on('chat', (data) => {
     console.log('DAATAS:', data);
     let massage = {
       id: socket.id,
-      massage: data,
+      massage: data.message,
+      time: data.time, 
       }
     chat.push(massage)
     console.log(chat)
+    io.sockets.emit('chatreload', chat);
   })
 });
 httpServer.listen(3000);

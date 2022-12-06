@@ -15,7 +15,7 @@ const time = () => {
 
 
 const chatLog = document.querySelector('.chat-log');
-const message = document.getElementById('Message');
+let message = document.getElementById('Message');
 const button = document.getElementById('button');
 console.log(chatLog)
 
@@ -29,6 +29,7 @@ button.addEventListener('click', (event) => {
         console.log('receive: ', data);
         userID = data;
     });
+    message.value = '';
     
 })
 

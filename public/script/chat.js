@@ -13,7 +13,7 @@ const time = () => {
     return time;
 };
 
-
+let nameH2 = document.querySelector('h2');
 const chatLog = document.querySelector('.chat-log');
 let message = document.getElementById('Message');
 const button = document.getElementById('button');
@@ -22,6 +22,20 @@ console.log(chatLog)
 console.log(io);
 const socket = io();
 let userID;
+
+const userName = prompt('What is your name?', 'анонім');
+const submitUserName = (userName) => {
+    
+    if (userName == null) {
+        userName = 'анонім'
+    }
+    nameH2.innerHTML = userName;
+    socket.emit('name', userName), (data) => {
+        console.log('receive: ', data);
+    }
+}
+submitUserName(userName);
+
 
 button.addEventListener('click', (event) => {
     const dataMessage = message.value;
@@ -34,19 +48,24 @@ button.addEventListener('click', (event) => {
 })
 
 socket.on('chatreload', function(data) {
-    createKeysData(data);    
+    console.log(data)
+    createKeysData(data);
 })
 
 //keywords HTML
 const createKeysData = (data) => {
+    const chat = data.chat;
+    const userNames = data.usersName;
+    
     let HTML = '';
-    data.forEach(element => {
+    data.chat.forEach(element => {
+        const name = userNames.find(item => item.UID == element.id);
         let divClass = 'chat-log__item';
         if (element.id == userID) {
             divClass = 'chat-log__item chat-log__item--own'
         }
             HTML += `<div class="${divClass}">
-                    <h3 class="chat-log__author">Felipe <small>${element.time}</small></h3>
+                    <h3 class="chat-log__author">${name.name} <small>${element.time}</small></h3>
                     <div class="chat-log__message">${element.massage}</div>
             </div>`;
     });

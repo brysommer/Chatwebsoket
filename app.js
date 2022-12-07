@@ -8,10 +8,16 @@ const getRoutes = require('./routes/getroutes');
 const postRoutes = require('./routes/postroutes');
 const httpServer = createServer(server);
 const io = new Server(httpServer, { /* options */ });
-let chat = []
+let chat = [];
+let usersName = [];
 io.on('connection', (socket) => {
-  io.sockets.emit('chatreload', chat);
+  io.sockets.emit('chatreload', { chat, usersName });
   console.log('wsserver ON', socket.id);
+  socket.on('name', (data) => {
+    console.log('Name: ' + data);
+    usersName.push({UID: socket.id, name: data});
+    console.log(usersName)
+  })
   socket.on('chat', (data, cb) => {
     console.log('DATA:', data);
     let massage = {
@@ -22,7 +28,7 @@ io.on('connection', (socket) => {
     chat.push(massage)
     console.log(chat)
     cb(massage.id);
-    io.sockets.emit('chatreload', chat);
+    io.sockets.emit('chatreload', { chat, usersName });
   })
 });
 httpServer.listen(3000);

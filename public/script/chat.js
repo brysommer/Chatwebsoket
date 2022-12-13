@@ -1,3 +1,20 @@
+//upload file by websocket
+const fileField = document.querySelector('#file');
+fileField.addEventListener('change' , (e) => {
+    let file = e.target.files[0];
+    let name = file.name;
+    let stream = ss.createStream();
+    ss(socket).emit('file', stream, name);
+      let blobStream = ss.createBlobReadStream(file);
+      let size = 0;
+      blobStream.on('data', function(chunk) {
+        size += chunk.length;
+        console.log(Math.floor(size / file.size * 100) + '%');
+        // -> e.g. '42%'
+      });
+      blobStream.pipe(stream);
+})
+
 const time = () => {
     const date = new Date();
     const hours = date.getHours();
@@ -17,9 +34,7 @@ let nameH2 = document.querySelector('h2');
 const chatLog = document.querySelector('.chat-log');
 let message = document.getElementById('Message');
 const button = document.getElementById('button');
-console.log(chatLog)
 
-console.log(io);
 const socket = io();
 let userID;
 
